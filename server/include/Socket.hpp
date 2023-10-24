@@ -31,11 +31,12 @@ class Socket{
         }
         Socket(const char* ip, uint16_t port){
             cout << "-----System message: Socket creating on "<< ip << ":" << port<< "...-----\n";
-            memset(&addr, 0, sizeof(addr));
+            bzero(&addr, sizeof(addr));
+            strcpy(this->ip, ip);
+            this->port = port;
             addr.sin_addr.s_addr = inet_addr(ip);
             addr.sin_port = htons(port);
             addr.sin_family = AF_INET;
-            strcpy(this->ip, ip);
-            this->port = port;
+            sockFd = socket(AF_INET, SOCK_STREAM, 0);
         }
 };

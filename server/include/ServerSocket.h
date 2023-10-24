@@ -18,11 +18,11 @@ class ServerSocket: public Socket{
     public:
         const int MAXCONNECTION = SOMAXCONN;
         ServerSocket(const char* ip = "0.0.0.0", uint16_t port = 8888):Socket(ip, port){
-            cout << "-----System message: ServerSocket creating...\n-----";
+            cout << "-----System message: ServerSocket creating...-----\n";
             this->clientFd = -1;
         }
         int getClientFd(){
-            return this-> clientFd;
+            return this->clientFd;
         }
         void bindSocketToAddr();
         void listenToPort();
