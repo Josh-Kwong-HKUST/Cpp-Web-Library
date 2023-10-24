@@ -1,6 +1,6 @@
 #include "../include/ClientSocket.h"
 
-int main(){
-    ClientSocket client("127.0.0.1", 8888);
+int main(int argc, char** argv){
+    ClientSocket client(argv[1], atoi(argv[2]));
     client.connectToServer();
 }
