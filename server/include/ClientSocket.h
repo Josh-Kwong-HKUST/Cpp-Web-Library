@@ -9,6 +9,8 @@ class ClientSocket: public Socket{
         Note that the user does not need to specify ip and port for the client
     */
     public:
-        ClientSocket(const char* ip, uint16_t port = 8888):Socket(ip, port){}
+        ClientSocket(const char* ip, uint16_t port = 8888):Socket(ip, port){
+            cout << "-----System message: ClientSocket creating...\n-----";
+        }
         void connectToServer();
 };

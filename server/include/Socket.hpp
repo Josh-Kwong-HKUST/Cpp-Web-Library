@@ -8,6 +8,7 @@
 #include <sys/types.h>
 
 using namespace std;
+typedef struct sockaddr_in sockaddr_in;
 
 class Socket{
     private:
@@ -29,11 +30,17 @@ class Socket{
             return this->port;
         }
         Socket(const char* ip, uint16_t port){
-            memset(addr, 0, sizeof(sockaddr_in));
+            cout << "-----System message: Socket creating on "<< ip << ":" << port<< "...-----\n";
+            addr = new sockaddr_in();
+            memset(addr, 0, sizeof(struct sockaddr_in));
             addr->sin_addr.s_addr = inet_addr(ip);
             addr->sin_port = htons(port);
             addr->sin_family = AF_INET;
             strcpy(this->ip, ip);
             this->port = port;
+        }
+        ~Socket(){
+            cout << "-----System message: Socket closing...\n-----";
+            delete addr;
         }
 };

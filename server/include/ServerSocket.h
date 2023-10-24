@@ -14,17 +14,15 @@ class ServerSocket: public Socket{
     */
     private:
         int clientFd;
-        static int MAXCONNECTION;
+
     public:
-        ServerSocket(const char* ip = "0.0.0.0", uint16_t port = 8888, int MAXCONNECTION = SOMAXCONN):Socket(ip, port){
-            this->clientFd = 0;
-            this->MAXCONNECTION = MAXCONNECTION;
+        const int MAXCONNECTION = SOMAXCONN;
+        ServerSocket(const char* ip = "0.0.0.0", uint16_t port = 8888):Socket(ip, port){
+            cout << "-----System message: ServerSocket creating...\n-----";
+            this->clientFd = -1;
         }
         int getClientFd(){
             return this-> clientFd;
-        }
-        int getMaxConnection(){
-            return this->MAXCONNECTION;
         }
         void bindSocketToAddr();
         void listenToPort();
