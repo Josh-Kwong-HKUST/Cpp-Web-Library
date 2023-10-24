@@ -13,14 +13,14 @@ typedef struct sockaddr_in sockaddr_in;
 class Socket{
     private:
         int sockFd;
-        struct sockaddr_in* addr;
+        struct sockaddr_in addr;
         char ip[16];
         uint16_t port;
     public:
         int getSockfd(){
             return sockFd;
         }
-        sockaddr_in* getAddr(){
+        sockaddr_in getAddr(){
             return this->addr;
         }
         char* getIP(){
@@ -31,16 +31,11 @@ class Socket{
         }
         Socket(const char* ip, uint16_t port){
             cout << "-----System message: Socket creating on "<< ip << ":" << port<< "...-----\n";
-            addr = new sockaddr_in();
-            memset(addr, 0, sizeof(struct sockaddr_in));
-            addr->sin_addr.s_addr = inet_addr(ip);
-            addr->sin_port = htons(port);
-            addr->sin_family = AF_INET;
+            memset(&addr, 0, sizeof(addr));
+            addr.sin_addr.s_addr = inet_addr(ip);
+            addr.sin_port = htons(port);
+            addr.sin_family = AF_INET;
             strcpy(this->ip, ip);
             this->port = port;
-        }
-        ~Socket(){
-            cout << "-----System message: Socket closing...\n-----";
-            delete addr;
         }
 };

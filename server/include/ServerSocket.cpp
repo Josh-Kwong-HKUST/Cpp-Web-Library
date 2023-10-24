@@ -1,8 +1,8 @@
 #include "ServerSocket.h"
 
 void ServerSocket::bindSocketToAddr(){
-    struct sockaddr_in* addr = this->getAddr();
-    if (bind(this->getSockfd(), (sockaddr*)addr, sizeof(struct sockaddr)) == -1){
+    struct sockaddr_in addr = this->getAddr();
+    if (bind(this->getSockfd(), (sockaddr*)&addr, sizeof(addr)) == -1){
         cerr << "=====Error: Server failed to bind the socket to the address=====\n";
         exit(-1);
     }
