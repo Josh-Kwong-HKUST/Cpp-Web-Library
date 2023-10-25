@@ -2,6 +2,7 @@
 #include <sys/epoll.h>
 #include <vector>
 #include <unistd.h>
+#include "Socket.hpp"
 
 #define MAXEVENTS 1024
 
@@ -35,8 +36,8 @@ class Epoll{
         int getEpollFd(){
             return epollFd;
         }
-        void Init(int serverFd);
-        void addFd(int fd);
+        void Init(Socket& socket);
+        void addSocket(Socket& socket);
         // void modifyFd(int fd);
         // void deleteFd(int fd);
         // void wait();

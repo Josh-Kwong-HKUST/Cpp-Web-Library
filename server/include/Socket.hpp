@@ -6,6 +6,7 @@
 #include <string.h>
 #include <iostream>
 #include <sys/types.h>
+#include <fcntl.h>
 
 using namespace std;
 typedef struct sockaddr_in sockaddr_in;
@@ -19,6 +20,9 @@ class Socket{
     public:
         int getSockfd(){
             return sockFd;
+        }
+        void setNonBlocking(){
+            fcntl(this->sockFd, F_SETFL, fcntl(sockFd, F_GETFL) | O_NONBLOCK);
         }
         sockaddr_in getAddr(){
             return this->addr;

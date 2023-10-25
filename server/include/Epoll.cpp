@@ -1,20 +1,16 @@
 #include "Epoll.h"
 #include <string.h>
-#include <fcntl.h>
 #include <sys/epoll.h>
 #include <iostream>
 
-void setNonBlocking(int fd){
-    fcntl(fd, F_SETFL, fcntl(fd, F_GETFL) | O_NONBLOCK);
-}
-
-void Epoll::Init(int serverFd){
-    setNonBlocking(serverFd);
-    this->addFd(serverFd);
+void Epoll::Init(Socket& socket){
+    socket.setNonBlocking();
+    this->addSocket(socket);
     bzero(events, sizeof(epoll_event) * MAXEVENTS);
 }
 
-void Epoll::addFd(int fd){
+void Epoll::addSocket(Socket& socket){
+    int fd = socket.getSockfd();
     epoll_event event;
     bzero(&event, sizeof(event));  
     event.data.fd = fd;
