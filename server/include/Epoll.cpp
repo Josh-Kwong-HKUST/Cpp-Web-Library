@@ -3,14 +3,14 @@
 #include <sys/epoll.h>
 #include <iostream>
 
-void Epoll::Init(Socket& socket){
-    socket.setNonBlocking();
+void Epoll::Init(Socket* socket){
     this->addSocket(socket);
     bzero(events, sizeof(epoll_event) * MAXEVENTS);
 }
 
-void Epoll::addSocket(Socket& socket){
-    int fd = socket.getSockfd();
+void Epoll::addSocket(Socket* socket){
+    socket->setNonBlocking();
+    int fd = socket->getSockfd();
     epoll_event event;
     bzero(&event, sizeof(event));  
     event.data.fd = fd;

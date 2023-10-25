@@ -36,8 +36,8 @@ class Epoll{
         int getEpollFd(){
             return epollFd;
         }
-        void Init(Socket& socket);
-        void addSocket(Socket& socket);
+        void Init(Socket* socket);
+        void addSocket(Socket* socket);
         // void modifyFd(int fd);
         // void deleteFd(int fd);
         // void wait();

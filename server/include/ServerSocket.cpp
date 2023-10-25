@@ -26,11 +26,11 @@ void ServerSocket::acceptClient(){
         cerr << "=====Error: Server failed to accept clients=====\n";
         exit(-1);
     }
-    cout << "-----System message: 1 client connected to server!-----\n";
+    cout << "-----System message: new client connected to server! Current online: " << this->numOfConnections << "-----\n";
 }
 
 void ServerSocket::Init(){
     bindSocketToAddr();
     listenToPort();
-    acceptClient();
+    // acceptClient();
 }

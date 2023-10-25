@@ -18,6 +18,7 @@ class Socket{
         char ip[16];
         uint16_t port;
     public:
+        static int numOfConnections;
         int getSockfd(){
             return sockFd;
         }
@@ -42,5 +43,6 @@ class Socket{
             addr.sin_port = htons(port);
             addr.sin_family = AF_INET;
             sockFd = socket(AF_INET, SOCK_STREAM, 0);
+            numOfConnections = 0;
         }
 };
