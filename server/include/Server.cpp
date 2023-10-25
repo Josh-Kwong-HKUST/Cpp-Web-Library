@@ -1,4 +1,5 @@
 #include "Server.h"
+#include <iostream>
 
 void Server::Init(){
     this->sock->bindSocketToAddr();
@@ -16,6 +17,7 @@ void Server::Init(){
             }
         }
     }
+    cout << "-----System message: Server successfully closed!-----\n";
 }
 
 void Server::addClient(Client *client){
