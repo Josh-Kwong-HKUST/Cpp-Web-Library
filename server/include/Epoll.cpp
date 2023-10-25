@@ -3,11 +3,6 @@
 #include <sys/epoll.h>
 #include <iostream>
 
-void Epoll::Init(Socket* socket){
-    this->addSocket(socket);
-    bzero(events, sizeof(epoll_event) * MAXEVENTS);
-}
-
 void Epoll::addSocket(Socket* socket){
     socket->setNonBlocking();
     int fd = socket->getSockfd();

@@ -1,31 +1,34 @@
 serverExecPath = ./bin/server
 clientExecPath = ./bin/client
-ClientSocketPath = ./include/ClientSocket.cpp
-ServerSocketPath = ./include/ServerSocket.cpp
-clientcppPath = ./src/client.cpp
-servercppPath = ./src/server.cpp
+includePath = ./include/
+srcPath = ./src/
 link = g++ -o
 compile = g++ -c
 debugFlag = -g -fsanitize=address,undefined
 
-client:	ClientSocket.o client.o
-	${link} ${clientExecPath} ClientSocket.o client.o ${debugFlag} && make clean
+client:	client.o Client.o Socket.o
+	${link} ${clientExecPath} Client.o client.o Socket.o ${debugFlag} && make clean
 
-server:	ServerSocket.o server.o
-	${link} ${serverExecPath} ServerSocket.o server.o ${debugFlag} && make clean
+server:	server.o Server.o Client.o Epoll.o  Socket.o
+	${link} ${serverExecPath} server.o Server.o Client.o Epoll.o Socket.o ${debugFlag} && make clean
 
 clean:
 	rm -rf *.o
 
-ClientSocket.o:
-	${compile} ${ClientSocketPath}
+Client.o: ${includePath}Client.cpp
+	${compile} ${includePath}Client.cpp
 
-client.o:
-	${compile} ${clientcppPath}
+client.o: Client.o Socket.o ${srcPath}client.cpp
+	${compile} ${srcPath}client.cpp
 
-ServerSocket.o:
-	${compile} ${ServerSocketPath}
+Server.o: Epoll.o Client.o Socket.o ${includePath}Server.cpp
+	${compile} ${includePath}Server.cpp
 
-server.o:
-	${compile} ${servercppPath}
+Socket.o: ${includePath}Socket.cpp
+	${compile} ${includePath}Socket.cpp
 
+server.o: Server.o ${srcPath}server.cpp
+	${compile} ${srcPath}server.cpp
+
+Epoll.o: ${includePath}Epoll.cpp
+	${compile} ${includePath}Epoll.cpp

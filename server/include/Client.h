@@ -1,11 +1,14 @@
 #pragma once
-#include "ClientSocket.h"
+#include "Socket.h"
 
 class Client{
     private:
-        ClientSocket* socket;
-        char username[32];
-
+        Socket* sock;
+        char username[21];
+        char password[21];
     public:
-        
+        Client(Socket* sock);
+        Client();
+        ~Client();
+        Socket* getSocket();
 };

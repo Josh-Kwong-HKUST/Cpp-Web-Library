@@ -1,18 +1,7 @@
-#include "../include/Socket.hpp"
-#include "../include/Epoll.h"
+#include "../include/Server.h"
 
 int main(int argc, char** argv){
-    Socket* server = new Socket(argv[1], atoi(argv[2]));
-    Epoll* ep = new Epoll();
-    ep->Init(server);
-    while (true){
-        std::vector<epoll_event> activeEvents = ep->poll();
-        for (auto event : activeEvents){
-            if (event.data.fd == server->getSockfd()){
-                server->acceptClient();
-            }
-        }
-    }
+    Server* server = new Server(argv[1], atoi(argv[2]));
+    server->Init();
     delete server;
-    delete ep;
 }
