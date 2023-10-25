@@ -3,6 +3,7 @@
 #include <vector>
 #include <unistd.h>
 #include "Socket.h"
+#include <errno.h>
 
 #define MAXEVENTS 1024
 
@@ -23,7 +24,11 @@ class Epoll{
         epoll_event* events;
     public:
         Epoll(){
-            epollFd = epoll_create(0);
+            epollFd = epoll_create(MAXEVENTS);
+            if(epollFd == -1){
+                std::cerr << "=====Error: epoll failed to create, Errno: " << strerror(errno) << "=====\n";
+                exit(-1);
+            }
             events = new epoll_event[MAXEVENTS];
         };
         ~Epoll(){
