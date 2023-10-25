@@ -1,9 +1,8 @@
-#include "../include/ServerSocket.h"
+#include "../include/Socket.hpp"
 #include "../include/Epoll.h"
 
 int main(int argc, char** argv){
-    ServerSocket* server = new ServerSocket(argv[1], atoi(argv[2]));
-    server->Init();
+    Socket* server = new Socket(argv[1], atoi(argv[2]));
     Epoll* ep = new Epoll();
     ep->Init(server);
     while (true){
