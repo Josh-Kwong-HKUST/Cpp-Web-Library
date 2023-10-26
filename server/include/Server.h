@@ -3,11 +3,12 @@
 #include "Epoll.h"
 #include <sys/socket.h>
 #include <vector>
+#include <unordered_map>
 
 class Server{
     private:
         Socket* sock;
-        std::vector<Client*> clients;
+        std::unordered_map<int, Client*> mapIdToClient;
         int MAXCONNECTION = SOMAXCONN;
         Epoll* ep;
         int currentNumConnections;
@@ -21,10 +22,11 @@ class Server{
             cout << "-----System message: Server instance created!-----\n";
         }
         ~Server(){
-            for (auto client: clients)  delete client;
+            for (auto entry: mapIdToClient)  delete entry.second;
             delete sock;
             delete ep;
         }
         void Init();
         void addClient(Client* client);
+        void forwardMessage(int cli_fd);
 };

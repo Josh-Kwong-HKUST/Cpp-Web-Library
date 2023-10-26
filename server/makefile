@@ -6,11 +6,14 @@ link = g++ -o
 compile = g++ -c
 debugFlag = -g -fsanitize=address,undefined
 
-client:	client.o Client.o Socket.o
-	${link} ${clientExecPath} Client.o client.o Socket.o ${debugFlag} && make clean
+build:
+	make client && make server && make clean
 
-server:	server.o Server.o Client.o Epoll.o  Socket.o
-	${link} ${serverExecPath} server.o Server.o Client.o Epoll.o Socket.o ${debugFlag} && make clean
+client:	client.o Client.o Socket.o Message.o
+	${link} ${clientExecPath} Client.o client.o Socket.o Message.o ${debugFlag}
+
+server:	server.o Server.o Client.o Epoll.o Socket.o Message.o
+	${link} ${serverExecPath} server.o Server.o Client.o Epoll.o Socket.o Message.o ${debugFlag}
 
 clean:
 	rm -rf *.o
@@ -32,3 +35,6 @@ server.o: Server.o ${srcPath}server.cpp
 
 Epoll.o: ${includePath}Epoll.cpp
 	${compile} ${includePath}Epoll.cpp
+
+Message.o: ${includePath}Message.cpp
+	${compile} ${includePath}Message.cpp

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sys/types.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 using namespace std;
 typedef struct sockaddr_in sockaddr_in;
@@ -31,7 +32,9 @@ class Socket{
             sockFd = socket(AF_INET, SOCK_STREAM, 0);
         }
         Socket(int fd):sockFd(fd){};
-        
+        ~Socket(){
+            close(sockFd);
+        }
         int getSockfd();
         void setNonBlocking();
         sockaddr_in getAddr();
