@@ -13,7 +13,7 @@ class Message {
         Message(int fromId, int toId);
         Message(char* buffer);  //deserialize
         ~Message();
-        void serializeMessage(char buffer[BUFFER_SIZE + 3]);
+        void serializeMessage(char buffer[BUFFER_SIZE + 7]);
         void inputContent();
         int getFromId();
         int getToId();

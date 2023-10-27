@@ -21,16 +21,6 @@ int main(int argc, char** argv){
         if (strcmp(cmd, "exit") == 0){
             break;
         }
-        else if (strcmp(cmd, "help") == 0){
-            cout << "-----list: list online user ids-----\n";
-            cout << "-----chat: send message-----\n";
-            cout << "-----recv: receive message-----\n";
-            cout << "-----exit: exit program-----\n";
-            cout << "-----help: show help-----\n";
-        }
-        else if(strcmp(cmd, "list") == 0){
-            cout << "Online user ids: \n";
-        }
         else if(strcmp(cmd, "chat") == 0){
             cout << "Choose target id to send message: \n";
             cin.getline(id, 4);

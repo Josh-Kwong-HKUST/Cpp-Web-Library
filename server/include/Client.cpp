@@ -33,9 +33,9 @@ void Client::sendMessage(int id){
 }
 
 void Client::recvMessage(){
-    char buffer[BUFFER_SIZE];
-    bzero(buffer, BUFFER_SIZE*sizeof(char));
-    recv(this->getSocket()->getSockfd(), buffer, BUFFER_SIZE, 0);
+    char buffer[BUFFER_SIZE + 7];
+    bzero(buffer, (BUFFER_SIZE + 7)*sizeof(char));
+    recv(this->getSocket()->getSockfd(), buffer, BUFFER_SIZE + 7, 0);
     Message* msg = new Message(buffer);
     cout << "-----Message from use (id = " << msg->getFromId() << "): " << msg->getContent() << "\n";
     delete msg;

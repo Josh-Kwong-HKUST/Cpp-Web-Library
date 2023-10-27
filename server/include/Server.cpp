@@ -1,5 +1,6 @@
 #include "Server.h"
 #include <iostream>
+#include <errno.h>
 
 void Server::Init(){
     this->sock->bindSocketToAddr();
@@ -35,15 +36,30 @@ void Server::forwardMessage(int cli_fd){
     char buffer[BUFFER_SIZE + 7];
     read(cli_fd, buffer, BUFFER_SIZE + 7);
     Message* msg = new Message(buffer);
-    // cout << "-----System message: Receive message from id = " << msg->getFromId();
-    // cout << " content: '" << msg->getContent() << "' to id = " << msg->getToId() << "-----\n";
     int toId = msg->getToId();
-    if (mapIdToClient.find(toId) == mapIdToClient.end()){
-        cout << "-----System message: Forwarding target id = " << toId << " not found!-----\n";
-        return;
+    /*
+        999 means broadcast
+        server broadcast the message to all clients
+    */
+    if (toId == 999){
+        for (auto client : this->mapIdToClient){
+            int targetFd = client.second->getSocket()->getSockfd();
+            if (targetFd == cli_fd) continue;
+            cout << "Broadcasting message from "<< msg->getFromId() << " to " << client.first << "\n";
+            cout << "Content: " << msg->getContent() << "\n";
+            if(write(targetFd, buffer, BUFFER_SIZE + 7) == -1){
+                cout << "=====Error: Failed to send message to client " << targetFd << " Errno: " << errno << "=====\n";
+            }
+        }
     }
-    Client* toClient = mapIdToClient[toId];
-    int targetFd = toClient->getSocket()->getSockfd();
-    write(targetFd, buffer, BUFFER_SIZE + 7);
+    else{   // private chat
+        if (mapIdToClient.find(toId) == mapIdToClient.end()){
+            cout << "-----System message: Forwarding target id = " << toId << " not found!-----\n";
+            return;
+        }
+        Client* toClient = mapIdToClient[toId];
+        int targetFd = toClient->getSocket()->getSockfd();
+        write(targetFd, buffer, BUFFER_SIZE + 7);
+    }
     delete msg;
 }

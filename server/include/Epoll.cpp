@@ -9,7 +9,7 @@ void Epoll::addSocket(Socket* socket){
     epoll_event event;
     bzero(&event, sizeof(event));  
     event.data.fd = fd;
-    event.events = EPOLLIN | EPOLLET;
+    event.events = EPOLLIN;
     if(epoll_ctl(epollFd, EPOLL_CTL_ADD, fd, &event) == -1){
         std::cerr << "=====Error: epoll failed to add file descriptor, Errno: " << strerror(errno) << "=====\n";
         exit(-1);
