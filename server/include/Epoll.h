@@ -48,6 +48,6 @@ class Epoll{
         // void modifyFd(int fd);
         // void deleteFd(int fd);
         // void wait();
-        std::vector<epoll_event> poll(int timeout = -1);
+        std::vector<Channel*> poll(int timeout = -1);
         void updateChannel(Channel* channel);
 };
