@@ -13,9 +13,9 @@ class Server{
         Epoll* ep;
         int currentNumConnections;
     public:
-        Server(const char* ip, uint16_t port, int maxConnection = SOMAXCONN){
+        Server(uint16_t port, int maxConnection = SOMAXCONN){
             cout << "-----System message: Creating Server instance...-----\n";
-            this->sock = new Socket(ip, port);
+            this->sock = new Socket("0.0.0.0", port);
             this->MAXCONNECTION = maxConnection;
             this->ep = new Epoll();
             this->currentNumConnections = 0;

@@ -4,8 +4,10 @@
 #include <unistd.h>
 #include "Socket.h"
 #include <errno.h>
+#include "Channel.h"
 
 #define MAXEVENTS 1024
+class Channel;
 
 class Epoll{
     /*
@@ -47,4 +49,5 @@ class Epoll{
         // void deleteFd(int fd);
         // void wait();
         std::vector<epoll_event> poll(int timeout = -1);
+        void updateChannel(Channel* channel);
 };

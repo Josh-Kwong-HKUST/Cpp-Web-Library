@@ -18,5 +18,6 @@ class Message {
         int getFromId();
         int getToId();
         char* getContent();
+        void setToId(int toId);
 };
 

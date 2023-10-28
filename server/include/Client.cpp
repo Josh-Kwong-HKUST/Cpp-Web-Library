@@ -9,7 +9,8 @@ void* recvMessage(void* arg){
         bzero(buffer, (BUFFER_SIZE + 7)*sizeof(char));
         recv(client->getSocket()->getSockfd(), buffer, BUFFER_SIZE + 7, 0);
         Message* msg = new Message(buffer);
-        cout << "User " << msg->getFromId() << ": " << msg->getContent() << "\n";
+        if(msg->getFromId() == 998) cout << "=====" << msg->getContent() << "=====" << "\n";
+        else cout << "User " << msg->getFromId() << ": " << msg->getContent() << "\n";
         delete msg;
     }
     return nullptr;
@@ -20,6 +21,7 @@ void* sendMessage(void* arg){
         Client* client = (Client*)arg;
         Message* msg = new Message(client->getAccountId(), 999);
         msg->inputContent();
+        if (strcmp(msg->getContent(), "/list") == 0)    msg->setToId(998);
         char buffer[BUFFER_SIZE + 7];
         bzero(buffer, (BUFFER_SIZE + 7)*sizeof(char));
         msg->serializeMessage(buffer);

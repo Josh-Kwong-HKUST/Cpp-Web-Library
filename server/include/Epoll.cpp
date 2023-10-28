@@ -28,3 +28,20 @@ std::vector<epoll_event> Epoll::poll(int timeout){
     }
     return activeEvents;
 }
+
+void Epoll::updateChannel(Channel* channel){
+    int fd = channel->getFd();
+    epoll_event ev;
+    bzero(&ev, sizeof(ev));
+    ev.data.ptr = channel;
+    ev.events = channel->getListenEvents();
+    if(!channel->getInEpoll()){
+        if(epoll_ctl(epollFd, EPOLL_CTL_ADD, fd, &ev) == -1){
+            std::cerr << "=====Error: epoll failed to add channel, Errno: " << strerror(errno) << "=====\n";
+            channel->setInEpoll();
+        }
+        else if (epoll_ctl(epollFd, EPOLL_CTL_MOD, fd, &ev) == -1){
+            std::cerr << "=====Error: epoll failed to modify channel, Errno: " << strerror(errno) << "=====\n";
+        }
+    }
+}

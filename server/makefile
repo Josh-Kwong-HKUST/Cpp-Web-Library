@@ -12,8 +12,8 @@ build:
 client:	client.o Client.o Socket.o Message.o
 	${link} ${clientExecPath} Client.o client.o Socket.o Message.o ${debugFlag}
 
-server:	server.o Server.o Client.o Epoll.o Socket.o Message.o
-	${link} ${serverExecPath} server.o Server.o Client.o Epoll.o Socket.o Message.o ${debugFlag}
+server:	server.o Server.o Client.o Epoll.o Socket.o Message.o Channel.o
+	${link} ${serverExecPath} server.o Server.o Client.o Epoll.o Socket.o Message.o  Channel.o ${debugFlag}
 
 clean:
 	rm -rf *.o
@@ -38,3 +38,6 @@ Epoll.o: ${includePath}Epoll.cpp
 
 Message.o: ${includePath}Message.cpp
 	${compile} ${includePath}Message.cpp
+
+Channel.o: ${includePath}Channel.cpp
+	${compile} ${includePath}Channel.cpp

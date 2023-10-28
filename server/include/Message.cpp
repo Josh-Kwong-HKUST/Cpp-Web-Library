@@ -19,6 +19,7 @@ Message::Message(char* buffer){
 
 void Message::inputContent(){
     std::fgets(this->content, BUFFER_SIZE + 1, stdin);
+    this->content[strlen(this->content) - 1] = '\0';
 }
 
 Message::~Message(){
@@ -47,4 +48,8 @@ int Message::getToId(){
 
 char* Message::getContent(){
     return this->content;
+}
+
+void Message::setToId(int toId){
+    this->toId = toId;
 }
