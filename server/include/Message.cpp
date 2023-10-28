@@ -18,7 +18,7 @@ Message::Message(char* buffer){
 }
 
 void Message::inputContent(){
-    std::cin.get(this->content, BUFFER_SIZE);
+    std::fgets(this->content, BUFFER_SIZE + 1, stdin);
 }
 
 Message::~Message(){

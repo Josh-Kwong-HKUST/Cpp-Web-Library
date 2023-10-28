@@ -1,6 +1,7 @@
 #pragma once
 #include "Socket.h"
 #include "Message.h"
+#include <pthread.h>
 
 class Client{
     private:
@@ -8,6 +9,8 @@ class Client{
         char username[21];
         char password[21];
         int accountId;
+        pthread_t* threadRecv;
+        pthread_t* threadSend;
     public:
         Client(Socket* sock, int id);
         Client();
@@ -15,7 +18,6 @@ class Client{
         Socket* getSocket();
         int getAccountId();
         void setAccountId(int id);
-        void sendMessage(int id);
-        void recvMessage();
         void connect();
+        void Init();
 };
