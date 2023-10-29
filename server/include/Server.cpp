@@ -80,16 +80,13 @@ void Server::newConnection(){
 }
 
 void Server::handleReadEvent(Client* client){
-    cout << "debugging: handleReadEvent\n";
     int sockfd = client->getSocket()->getSockfd();
     char buf[BUFFER_SIZE + 7];
     while(true){
         bzero(&buf, sizeof(buf));
         ssize_t bytes_read = recv(sockfd, buf, sizeof(buf), 0);
-        cout << "debugging: bytes_read = " << bytes_read << "\n";
         if(bytes_read > 0){
             this->forwardMessage(sockfd, buf);
-            cout << "debugging: finish forwarding message\n";
         } else if(bytes_read == -1 && errno == EINTR){  //client interrupted. continue reading
             printf("continue reading\n");
             continue;
