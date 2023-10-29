@@ -17,7 +17,7 @@ void Epoll::addSocket(Socket* socket){
 }
 
 std::vector<Channel*> Epoll::poll(int timeout){
-    std::vector<Channel*> activeChannel;
+    std::vector<Channel*> activeChannels;
     int numFds = epoll_wait(epollFd, events, MAXEVENTS, timeout);
     if (numFds == -1){
         std::cerr << "=====Error: epoll failed to wait, Errno: " << strerror(errno) << "=====\n";
@@ -26,9 +26,9 @@ std::vector<Channel*> Epoll::poll(int timeout){
     for (int i = 0; i < numFds; i++){
         Channel* ch = (Channel*)events[i].data.ptr;
         ch->setHappenEvents(events[i].events);
-        activeChannel.push_back(ch);
+        activeChannels.push_back(ch);
     }
-    return activeChannel;
+    return activeChannels;
 }
 
 void Epoll::updateChannel(Channel* channel){

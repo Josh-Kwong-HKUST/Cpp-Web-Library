@@ -25,7 +25,9 @@ void* sendMessage(void* arg){
         char buffer[BUFFER_SIZE + 7];
         bzero(buffer, (BUFFER_SIZE + 7)*sizeof(char));
         msg->serializeMessage(buffer);
-        send(client->getSocket()->getSockfd(), buffer, BUFFER_SIZE + 7, 0);
+        if(send(client->getSocket()->getSockfd(), buffer, BUFFER_SIZE + 7, 0) == -1){
+            cout << "=====Error: Failed to send message to server! Errno: " << strerror(errno) << "=====\n";
+        }
         delete msg;
     }
     return nullptr;

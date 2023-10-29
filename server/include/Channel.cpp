@@ -1,10 +1,11 @@
 #include "Channel.h"
+#include "Eventloop.h"
 
-Channel::Channel(Epoll* ep, int fd): ep(ep), fd(fd), listenEvents(0), happenEvents(0), inEpoll(false){}
+Channel::Channel(Eventloop *_loop, int _fd): loop(_loop), fd(_fd), listenEvents(0), happenEvents(0), inEpoll(false){}
 
 void Channel::enableReading(){
     listenEvents = EPOLLIN | EPOLLET; // EPOLLET: Edge Triggered
-    ep->updateChannel(this);
+    loop->updateChannel(this);
 }
 
 int Channel::getFd(){
@@ -29,4 +30,12 @@ void Channel::setInEpoll(){
 
 void Channel::setHappenEvents(uint32_t ev){
     this->happenEvents = ev;
+}
+
+void Channel::handleEvent(){
+    callback();
+}
+
+void Channel::setCallback(std::function<void()> cb){
+    callback = cb;
 }

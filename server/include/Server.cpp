@@ -7,36 +7,20 @@
 void Server::Init(){
     this->sock->bindSocketToAddr();
     this->sock->listenToPort();
-    this->ep->addSocket(this->sock);
+    this->sock->setNonBlocking();
+    Channel* serverChannel = new Channel(this->loop, this->sock->getSockfd());
+    std::function<void()> cb = std::bind(&Server::newConnection, this);
+    serverChannel->setCallback(cb);
+    serverChannel->enableReading();
     cout << "-----System message: Server successfully initialized!-----\n";
-    while (true){   // server main loop
-        std::vector<epoll_event> activeEvents = ep->poll();
-        for (auto event : activeEvents){
-            if (event.data.fd == this->sock->getSockfd()){  // new connection
-                int cli_sock = this->sock->acceptClient();
-                char idBuffer[4];
-                recv(cli_sock, idBuffer, 4, 0);
-                Client* client = new Client(new Socket(cli_sock), atoi(idBuffer));
-                this->addClient(client);
-                cout << "-----System message: new client connected to server! Current online: " << this->currentNumConnections << "-----\n";
-            }
-            else if(event.events & EPOLLIN){    // readable event
-                int cli_sock = event.data.fd;
-                this->forwardMessage(cli_sock);
-            }
-        }
-    }
 }
 
 void Server::addClient(Client *client){
     this->mapIdToClient[client->getAccountId()] = client;
     this->currentNumConnections++;
-    this->ep->addSocket(client->getSocket());
 }
 
-void Server::forwardMessage(int cli_fd){
-    char buffer[BUFFER_SIZE + 7];
-    recv(cli_fd, buffer, BUFFER_SIZE + 7, 0);
+void Server::forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]){
     Message* msg = new Message(buffer);
     int toId = msg->getToId();
     /*
@@ -80,4 +64,42 @@ void Server::forwardMessage(int cli_fd){
         send(targetFd, buffer, BUFFER_SIZE + 7, 0);
     }
     delete msg;
+}
+
+void Server::newConnection(){
+    int cli_sock = this->sock->acceptClient();
+    char idBuffer[4];
+    recv(cli_sock, idBuffer, 4, 0);
+    Client* client = new Client(new Socket(cli_sock), atoi(idBuffer));
+    this->addClient(client);
+    Channel* clientChannel = new Channel(this->loop, cli_sock);
+    std::function<void()> cb = std::bind(&Server::handleReadEvent, this, client);
+    clientChannel->setCallback(cb);
+    clientChannel->enableReading();
+    cout << "-----System message: new client connected to server! Current online: " << this->currentNumConnections << "-----\n";
+}
+
+void Server::handleReadEvent(Client* client){
+    cout << "debugging: handleReadEvent\n";
+    int sockfd = client->getSocket()->getSockfd();
+    char buf[BUFFER_SIZE + 7];
+    while(true){
+        bzero(&buf, sizeof(buf));
+        ssize_t bytes_read = recv(sockfd, buf, sizeof(buf), 0);
+        cout << "debugging: bytes_read = " << bytes_read << "\n";
+        if(bytes_read > 0){
+            this->forwardMessage(sockfd, buf);
+            cout << "debugging: finish forwarding message\n";
+        } else if(bytes_read == -1 && errno == EINTR){  //client interrupted. continue reading
+            printf("continue reading\n");
+            continue;
+        } else if(bytes_read == -1 && ((errno == EAGAIN) || (errno == EWOULDBLOCK))){//non-blocking IO, no more data to read
+            printf("finish reading once, errno: %d\n", errno);
+            break;
+        } else if(bytes_read == 0){  //EOF, client disconnected
+            printf("EOF, user %d disconnected\n", client->getAccountId());
+            close(sockfd);   //closing a socket will automatically remove it from epoll
+            break;
+        }
+    }
 }
