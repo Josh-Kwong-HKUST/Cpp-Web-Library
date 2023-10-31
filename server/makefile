@@ -13,7 +13,7 @@ client:
 	g++ ${srcPath}/client.cpp ${includePath}/Client.cpp ${includePath}/Socket.cpp ${includePath}/Message.cpp -o ${clientExecPath} ${debugFlag}
 
 server:
-	g++ ${srcPath}/server.cpp ${includePath}/Server.cpp ${includePath}/Acceptor.cpp ${includePath}/Epoll.cpp ${includePath}/Client.cpp ${includePath}/Socket.cpp ${includePath}/Eventloop.cpp ${includePath}/Channel.cpp ${includePath}/Message.cpp -o ${serverExecPath} ${debugFlag}
+	g++ ${srcPath}/server.cpp ${includePath}/Server.cpp ${includePath}/Connection.cpp ${includePath}/Acceptor.cpp ${includePath}/Epoll.cpp ${includePath}/Client.cpp ${includePath}/Socket.cpp ${includePath}/Eventloop.cpp ${includePath}/Channel.cpp ${includePath}/Message.cpp -o ${serverExecPath} ${debugFlag}
 
 clean:
 	rm -rf *.o

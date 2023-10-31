@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Channel.h"
 #include "Eventloop.h"
 #include "Socket.h"

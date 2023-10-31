@@ -33,16 +33,19 @@ std::vector<Channel*> Epoll::poll(int timeout){
 
 void Epoll::updateChannel(Channel* channel){
     int fd = channel->getFd();
+    cout << "Debugging: fd = " << fd << "\n";
     epoll_event ev;
     bzero(&ev, sizeof(ev));
     ev.data.ptr = channel;
     ev.events = channel->getListenEvents();
     if(!channel->getInEpoll()){
         if(epoll_ctl(epollFd, EPOLL_CTL_ADD, fd, &ev) == -1){
-            std::cerr << "=====Error: epoll failed to add channel, Errno: " << strerror(errno) << "=====\n";
-            channel->setInEpoll();
+            std::cerr << "=====Error: epoll failed to add channel, Errno: " << strerror(errno) << "=====\n";          
         }
-        else if (epoll_ctl(epollFd, EPOLL_CTL_MOD, fd, &ev) == -1){
+        channel->setInEpoll();
+    }
+    else{
+        if(epoll_ctl(epollFd, EPOLL_CTL_MOD, fd, &ev) == -1){
             std::cerr << "=====Error: epoll failed to modify channel, Errno: " << strerror(errno) << "=====\n";
         }
     }

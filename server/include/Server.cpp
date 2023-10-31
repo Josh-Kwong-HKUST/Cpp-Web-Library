@@ -9,6 +9,10 @@ Server::Server(uint16_t port, Eventloop* lp){
     this->loop = lp;
     this->currentNumConnections = 0;
     this->acceptor = new Acceptor(this->loop, port);
+    /*
+        bind the callback function to the acceptor
+        when a new connection is established, the acceptor will call Server::newConnection    
+    */
     auto cb = std::bind(&Server::newConnection, this, std::placeholders::_1);
     this->acceptor->setNewConnectionCallback(cb);
     cout << "-----System message: Server instance created!-----\n";
@@ -17,6 +21,21 @@ Server::Server(uint16_t port, Eventloop* lp){
 void Server::addClient(Client *client){
     this->mapIdToClient[client->getAccountId()] = client;
     this->currentNumConnections++;
+}
+
+void Server::newConnection(Socket* sock){
+    Connection *conn = new Connection(loop, sock);
+    std::function<void(Socket*)> cb = std::bind(&Server::deleteConnection, this, std::placeholders::_1);
+    conn->setDeleteConnectionCallback(cb);
+    connections[sock->getSockfd()] = conn;
+    cout << "-----System message: new client connected to server! Current online: " << ++this->currentNumConnections << "-----\n";
+}
+
+void Server::deleteConnection(Socket *sock){
+    Connection *conn = connections[sock->getSockfd()];
+    connections.erase(sock->getSockfd());
+    delete conn;
+    cout << "-----System message: A client left! Current online: " << --this->currentNumConnections << "-----\n";
 }
 
 void Server::forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]){
@@ -63,19 +82,6 @@ void Server::forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]){
         send(targetFd, buffer, BUFFER_SIZE + 7, 0);
     }
     delete msg;
-}
-
-void Server::newConnection(Socket* serverSock){
-    int cli_sock = serverSock->acceptClient();
-    char idBuffer[4];
-    recv(cli_sock, idBuffer, 4, 0);
-    Client* client = new Client(new Socket(cli_sock), atoi(idBuffer));
-    this->addClient(client);
-    Channel* clientChannel = new Channel(this->loop, cli_sock);
-    std::function<void()> cb = std::bind(&Server::handleReadEvent, this, client);
-    clientChannel->setCallback(cb);
-    clientChannel->enableReading();
-    cout << "-----System message: new client connected to server! Current online: " << this->currentNumConnections << "-----\n";
 }
 
 void Server::handleReadEvent(Client* client){
