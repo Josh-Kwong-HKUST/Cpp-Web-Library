@@ -45,7 +45,8 @@ void Server::newConnection(Socket* sock){
     int random = sock->getSockfd() % this->subReactors.size();
     Connection *conn = new Connection(this->subReactors[random], sock);
     std::function<void(Socket*)> cb = std::bind(&Server::deleteConnection, this, std::placeholders::_1);
-    conn->setDeleteConnectionCallback(cb);
+    conn->setOnDeleteConnectionCallback(cb);
+    conn->setOnConnectCallback(this->onConnectionCallback);
     connections[sock->getSockfd()] = conn;
     printf("-----System message: new client connected to server! Current online: %d-----\n", ++this->currentNumConnections);
 }
@@ -55,6 +56,10 @@ void Server::deleteConnection(Socket *sock){
     connections.erase(sock->getSockfd());
     delete conn;
     printf("-----System message: A client left! Current online: %d-----\n", --this->currentNumConnections);
+}
+
+void Server::onConnect(std::function<void(Connection*)> cb){
+    this->onConnectionCallback = std::move(cb);
 }
 
 void Server::forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]){

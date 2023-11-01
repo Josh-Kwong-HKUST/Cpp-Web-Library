@@ -21,6 +21,7 @@ class Server{
         int currentNumConnections;
         Acceptor* acceptor;
         std::map<int, Connection*> connections;
+        std::function<void(Connection*)> onConnectionCallback;
     public:
         Server(uint16_t port, Eventloop* reactor);
         ~Server();
@@ -30,4 +31,5 @@ class Server{
         void newConnection(Socket* sock);
         void deleteConnection(Socket* sock);
         void handleReadEvent(Client* client);
+        void onConnect(std::function<void(Connection*)> cb);
 };

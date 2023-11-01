@@ -13,7 +13,7 @@ ssize_t Buffer::size(){
     return buf.size();
 }
 
-const char* Buffer::c_str(){
+const char* Buffer::toStr(){
     return buf.c_str();
 }
 

@@ -11,7 +11,7 @@ public:
     ~Buffer();
     void append(const char* _str, int _size);
     ssize_t size();
-    const char* c_str();
+    const char* toStr();
     void clear();
     void getline();
 };

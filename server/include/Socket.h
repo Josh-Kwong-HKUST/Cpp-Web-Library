@@ -19,6 +19,7 @@ class Socket{
         char ip[16];
         uint16_t port;
         int MAXCONNECTION = SOMAXCONN;
+        bool NonBlocking = false;
     public:
         /* constructor */
         Socket(const char* ip, uint16_t port){
@@ -44,4 +45,5 @@ class Socket{
         void bindSocketToAddr();
         void listenToPort();
         int acceptClient();
+        bool isNonBlocking();
 };

@@ -5,6 +5,7 @@ int Socket::getSockfd(){
 }
 void Socket::setNonBlocking(){
     fcntl(this->sockFd, F_SETFL, fcntl(sockFd, F_GETFL) | O_NONBLOCK);
+    this->NonBlocking = true;
 }
 sockaddr_in Socket::getAddr(){
     return this->addr;
@@ -50,4 +51,8 @@ int Socket::acceptClient(){ // return clientFd
         exit(-1);
     }
     return clientFd;
+}
+
+bool Socket::isNonBlocking(){
+    return this->NonBlocking;
 }
