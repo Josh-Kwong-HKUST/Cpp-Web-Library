@@ -1,5 +1,5 @@
-#include "Client.h"
-#include "Message.h"
+#include "../include/Client.h"
+#include "../include/Message.h"
 
 /* start routine for thread*/
 void* recvMessage(void* arg){

@@ -1,4 +1,4 @@
-#include "Message.h"
+#include "../include/Message.h"
 #include <iostream>
 
 Message::Message(int fromId, int toId): fromId(fromId), toId(toId) {

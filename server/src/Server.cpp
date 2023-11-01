@@ -1,6 +1,6 @@
-#include "Server.h"
-#include "Client.h"
-#include "Message.h"
+#include "../include/Server.h"
+#include "../include/Client.h"
+#include "../include/Message.h"
 #include <cstdio>
 #include <iostream>
 #include <errno.h>
