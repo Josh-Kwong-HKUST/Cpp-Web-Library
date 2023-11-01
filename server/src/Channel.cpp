@@ -3,8 +3,13 @@
 
 Channel::Channel(Eventloop *_loop, int _fd): loop(_loop), fd(_fd), listenEvents(0), happenEvents(0), inEpoll(false){}
 
-void Channel::enableReading(){
-    listenEvents |= EPOLLIN | EPOLLET; // EPOLLET: Edge Triggered
+void Channel::enableRead(){
+    listenEvents |= EPOLLIN | EPOLLPRI; // EPOLLET: Edge Triggered
+    loop->updateChannel(this);
+}
+
+void Channel::enableET(){
+    listenEvents |= EPOLLET;
     loop->updateChannel(this);
 }
 
@@ -39,3 +44,4 @@ void Channel::handleEvent(){
 void Channel::setCallback(std::function<void()> cb){
     callback = cb;
 }
+

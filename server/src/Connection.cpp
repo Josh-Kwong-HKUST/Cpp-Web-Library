@@ -10,7 +10,8 @@ Connection::Connection(Eventloop* _loop, Socket* _sock): loop(_loop),
     readBuffer = new Buffer();
     writeBuffer = new Buffer();
     channel = new Channel(loop, sock->getSockfd());
-    channel->enableReading();
+    channel->enableRead();
+    channel->enableET();
     channel->setInEpoll();
 }
 
@@ -137,4 +138,24 @@ void Connection::writeBlocking() {
     printf("Other error on blocking client fd %d\n", sockfd);
     state = State::Closed;
   }
+}
+
+Socket* Connection::getSocket() const{
+    return sock;
+}
+
+Buffer* Connection::getReadBuffer() const{
+    return readBuffer;
+}
+
+Buffer* Connection::getWriteBuffer() const{
+    return writeBuffer;
+}
+
+void Connection::setWriteBuffer(const char* _buf){
+    writeBuffer->setBuf(_buf);
+}
+
+void Connection::setWriteBufferGetline(){
+    writeBuffer->getline();
 }

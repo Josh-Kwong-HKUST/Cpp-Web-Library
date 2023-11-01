@@ -15,7 +15,8 @@ class Channel
     public:
         Channel(Eventloop* _loop, int _fd);
 
-        void enableReading();
+        void enableRead();
+        void enableET();
         int getFd();
         uint32_t getListenEvents();
         uint32_t getHappenEvents();

@@ -14,4 +14,5 @@ public:
     const char* toStr();
     void clear();
     void getline();
+    void setBuf(const char*);
 };

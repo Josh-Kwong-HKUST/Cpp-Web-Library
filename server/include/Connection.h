@@ -34,4 +34,9 @@ public:
     void writeNonBlocking();
     void writeBlocking();
     State getState() const;
+    Socket* getSocket() const;
+    Buffer* getReadBuffer() const;
+    Buffer* getWriteBuffer() const;
+    void setWriteBuffer(const char*);
+    void setWriteBufferGetline();
 };
