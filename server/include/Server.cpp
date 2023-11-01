@@ -1,21 +1,35 @@
 #include "Server.h"
 #include "Client.h"
 #include "Message.h"
+#include <cstdio>
 #include <iostream>
 #include <errno.h>
 
-Server::Server(uint16_t port, Eventloop* lp){
-    cout << "-----System message: Creating Server instance...-----\n";
-    this->loop = lp;
-    this->currentNumConnections = 0;
-    this->acceptor = new Acceptor(this->loop, port);
+Server::Server(uint16_t port, Eventloop* reactor): mainReactor(reactor), currentNumConnections(0){
+    printf("-----System message: Creating Server instance...-----\n");
+    this->acceptor = new Acceptor(this->mainReactor, port);
     /*
         bind the callback function to the acceptor
         when a new connection is established, the acceptor will call Server::newConnection    
     */
     auto cb = std::bind(&Server::newConnection, this, std::placeholders::_1);
     this->acceptor->setNewConnectionCallback(cb);
-    cout << "-----System message: Server instance created!-----\n";
+    int size = std::thread::hardware_concurrency();
+    this->threadPool = new ThreadPool(size);
+    for (int i = 0; i < size; ++i){
+        this->subReactors.push_back(new Eventloop());
+        this->threadPool->enqueue([this, i](){
+            this->subReactors[i]->loop();   // each subReactor starts its event loop
+        });
+    }
+    printf("-----System message: Server instance created!-----\n");
+}
+
+Server::~Server(){
+    for (auto entry: mapIdToClient)  delete entry.second;
+    delete acceptor;
+    delete threadPool;
+    for (auto subReactor: subReactors) delete subReactor;
 }
 
 void Server::addClient(Client *client){
@@ -24,18 +38,23 @@ void Server::addClient(Client *client){
 }
 
 void Server::newConnection(Socket* sock){
-    Connection *conn = new Connection(loop, sock);
+    if (sock->getSockfd() == -1){
+        printf("=====Error: Failed to accept new connection! Errno: %s=====\n", strerror(errno));
+        return;
+    }
+    int random = sock->getSockfd() % this->subReactors.size();
+    Connection *conn = new Connection(this->subReactors[random], sock);
     std::function<void(Socket*)> cb = std::bind(&Server::deleteConnection, this, std::placeholders::_1);
     conn->setDeleteConnectionCallback(cb);
     connections[sock->getSockfd()] = conn;
-    cout << "-----System message: new client connected to server! Current online: " << ++this->currentNumConnections << "-----\n";
+    printf("-----System message: new client connected to server! Current online: %d-----\n", ++this->currentNumConnections);
 }
 
 void Server::deleteConnection(Socket *sock){
     Connection *conn = connections[sock->getSockfd()];
     connections.erase(sock->getSockfd());
     delete conn;
-    cout << "-----System message: A client left! Current online: " << --this->currentNumConnections << "-----\n";
+    printf("-----System message: A client left! Current online: %d-----\n", --this->currentNumConnections);
 }
 
 void Server::forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]){
@@ -49,11 +68,10 @@ void Server::forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]){
         for (auto client : this->mapIdToClient){
             int targetFd = client.second->getSocket()->getSockfd();
             if (targetFd == cli_fd) continue;
-            cout << "Broadcasting message from "<< msg->getFromId() << " to " << client.first << "\n";
-            cout << "Content: " << msg->getContent() << "\n";
-            if(send(targetFd, buffer, BUFFER_SIZE + 7, 0) == -1){
-                cout << "=====Error: Failed to send message to client " << targetFd << " Errno: " << errno << "=====\n";
-            }
+            printf("Broadcasting message from %d to %d\n", msg->getFromId(), client.first);
+            printf("Content: %s\n", msg->getContent());
+            if(send(targetFd, buffer, BUFFER_SIZE + 7, 0) == -1)
+                printf("=====Error: Failed to send message to client %d! Errno: %s=====\n", targetFd, strerror(errno));
         }
     }
     else if (toId == 998){   // 998 means this is a request to server, server needs to respond the online list
@@ -74,7 +92,7 @@ void Server::forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]){
     }
     else if(toId >= 100 && toId < 998){ //private chat
         if (mapIdToClient.find(toId) == mapIdToClient.end()){
-            cout << "-----System message: Forwarding target id = " << toId << " not found!-----\n";
+            printf("-----System message: Forwarding target id = %d not found!-----\n", toId);
             return;
         }
         Client* toClient = mapIdToClient[toId];

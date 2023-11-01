@@ -99,9 +99,9 @@ inline ThreadPool::~ThreadPool()
 {
     {
         std::unique_lock<std::mutex> lock(queue_mutex);
-        stop = true;
+        stop = true;    // set stop flag to true
     }
-    condition.notify_all();
+    condition.notify_all(); // notify all threads that stop flag is set to true
     for(std::thread &worker: workers)
-        worker.join();
+        worker.join();  // join all threads
 }

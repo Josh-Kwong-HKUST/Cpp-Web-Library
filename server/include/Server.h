@@ -5,6 +5,8 @@
 #include "Eventloop.h"
 #include "Acceptor.h"
 #include "Connection.h"
+#include "ThreadPool.h"
+
 #include <sys/socket.h>
 #include <vector>
 #include <unordered_map>
@@ -12,17 +14,16 @@
 
 class Server{
     private:
+        Eventloop* mainReactor;
+        std::vector<Eventloop*> subReactors;
+        ThreadPool* threadPool;
         std::unordered_map<int, Client*> mapIdToClient;
         int currentNumConnections;
-        Eventloop* loop;
         Acceptor* acceptor;
         std::map<int, Connection*> connections;
     public:
-        Server(uint16_t port, Eventloop* lp);
-        ~Server(){
-            for (auto entry: mapIdToClient)  delete entry.second;
-            delete acceptor;
-        }
+        Server(uint16_t port, Eventloop* reactor);
+        ~Server();
         void Init();
         void addClient(Client* client);
         void forwardMessage(int cli_fd, char buffer[BUFFER_SIZE + 7]);
