@@ -30,3 +30,7 @@ void Buffer::setBuf(const char* _buf){
     this->clear();
     buf.append(_buf);
 }
+
+bool Buffer::equal(const char* _str){
+    return buf == _str;
+}

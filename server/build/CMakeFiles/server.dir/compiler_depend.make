@@ -297,8 +297,41 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
-  ../include/Message.h
+  ../include/Message.h \
+  ../include/utils.hpp \
+  /usr/include/mysql/mysql.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+  /usr/include/mysql/field_types.h \
+  /usr/include/mysql/my_list.h \
+  /usr/include/mysql/mysql_com.h \
+  /usr/include/mysql/my_command.h \
+  /usr/include/mysql/my_compress.h \
+  /usr/include/mysql/udf_registration_types.h \
+  /usr/include/mysql/client_plugin.h \
+  /usr/include/c++/11/stdlib.h \
+  /usr/include/mysql/plugin_auth_common.h \
+  /usr/include/mysql/mysql_version.h \
+  /usr/include/mysql/mysql_time.h \
+  /usr/include/mysql/errmsg.h
 
+
+/usr/include/mysql/errmsg.h:
+
+/usr/include/mysql/mysql_time.h:
+
+/usr/include/mysql/plugin_auth_common.h:
+
+/usr/include/c++/11/stdlib.h:
+
+/usr/include/mysql/my_compress.h:
+
+/usr/include/mysql/my_command.h:
+
+/usr/include/mysql/mysql_com.h:
+
+/usr/include/mysql/field_types.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h:
 
 /usr/include/c++/11/bits/stl_multimap.h:
 
@@ -440,6 +473,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
+/usr/include/mysql/client_plugin.h:
+
 /usr/include/c++/11/bits/allocator.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
@@ -449,6 +484,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/c++/11/ostream:
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/mysql/mysql.h:
 
 /usr/include/c++/11/bits/node_handle.h:
 
@@ -732,6 +769,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 
 /usr/include/c++/11/bits/functional_hash.h:
 
+/usr/include/mysql/my_list.h:
+
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/alloca.h:
@@ -751,6 +790,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/wctype.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
+
+/usr/include/mysql/mysql_version.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
@@ -853,6 +894,10 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/c++/11/bits/refwrap.h:
 
 /usr/include/c++/11/bits/hashtable.h:
+
+/usr/include/mysql/udf_registration_types.h:
+
+../include/utils.hpp:
 
 /usr/include/c++/11/bits/basic_ios.tcc:
 

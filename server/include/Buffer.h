@@ -15,4 +15,5 @@ public:
     void clear();
     void getline();
     void setBuf(const char*);
+    bool equal(const char* _str);
 };

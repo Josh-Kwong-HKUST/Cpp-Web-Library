@@ -33,7 +33,6 @@ std::vector<Channel*> Epoll::poll(int timeout){
 
 void Epoll::updateChannel(Channel* channel){
     int fd = channel->getFd();
-    cout << "Debugging: fd = " << fd << "\n";
     epoll_event ev;
     bzero(&ev, sizeof(ev));
     ev.data.ptr = channel;

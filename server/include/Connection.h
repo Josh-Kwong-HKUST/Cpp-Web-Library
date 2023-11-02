@@ -4,6 +4,7 @@
 #include "Socket.h"
 #include "Macros.h"
 #include "Buffer.h"
+#include <stdexcept>
 
 class Connection{
 public:
@@ -11,6 +12,7 @@ public:
     Invalid = 1,
     Handshaking,
     Connected,
+    Logined,
     Closed,
     Failed,
   };
@@ -40,4 +42,5 @@ public:
     Buffer* getWriteBuffer() const;
     void setWriteBuffer(const char*);
     void setWriteBufferGetline();
+    void setState(State _state);
 };

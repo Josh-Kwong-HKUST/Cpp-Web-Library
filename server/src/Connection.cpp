@@ -41,7 +41,7 @@ Connection::State Connection::getState() const{
 }
 
 void Connection::read() {
-  ASSERT(state == State::Connected, "Connection read error: connection state is disconnected!");
+  ASSERT(state == State::Logined || state == State::Connected, "Connection read error: connection state is disconnected!");
   readBuffer->clear();
   if (sock->isNonBlocking()) {
     readNonBlocking();
@@ -51,7 +51,7 @@ void Connection::read() {
 }
 
 void Connection::write(){
-    ASSERT(state == State::Connected, "Connection write error: connection state is disconnected!");
+    ASSERT(state == State::Logined || state == State::Connected, "Connection write error: connection state is disconnected!");
     if (sock->isNonBlocking()){
         writeNonBlocking();
     } else {
@@ -163,4 +163,8 @@ void Connection::setWriteBuffer(const char* _buf){
 
 void Connection::setWriteBufferGetline(){
     writeBuffer->getline();
+}
+
+void Connection::setState(State _state){
+    state = _state;
 }
