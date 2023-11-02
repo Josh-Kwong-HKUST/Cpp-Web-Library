@@ -1,11 +1,18 @@
-#include "../include/Socket.h"
-#include "../include/Client.h"
+#include "../include/Connection.h"
 
 int main(int argc, char** argv){
     // 47.243.244.116:8888
-    Client* client = new Client(new Socket(argv[1], atoi(argv[2])), atoi(argv[3]));
-    cout << "Connecting to server...\n";
-    client->connect();
-    client->Init();
-    delete client;
+    Socket* clientSocket = new Socket(argv[1], atoi(argv[2]));
+    clientSocket->connectToServer();
+    Connection* conn = new Connection(nullptr, clientSocket);   // client connection does not have event loop
+    while (true){
+        if (conn->getState() == Connection::State::Closed){
+            printf("Connection closed\n");
+            break;
+        }
+        conn->setWriteBufferGetline();
+        conn->write();
+        conn->read();
+        printf("%s\n", conn->getReadBuffer()->toStr());
+    }
 }

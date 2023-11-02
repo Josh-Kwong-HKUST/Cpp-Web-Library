@@ -180,8 +180,6 @@ CMakeFiles/server.dir/main/server.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h \
- /home/joshk/Webpage-Chatroom/server/main/../include/Client.h \
- /home/joshk/Webpage-Chatroom/server/main/../include/Message.h \
  /home/joshk/Webpage-Chatroom/server/main/../include/Epoll.h \
  /usr/include/x86_64-linux-gnu/sys/epoll.h \
  /usr/include/x86_64-linux-gnu/bits/epoll.h /usr/include/c++/11/vector \
@@ -210,6 +208,9 @@ CMakeFiles/server.dir/main/server.cpp.o: \
  /home/joshk/Webpage-Chatroom/server/main/../include/Eventloop.h \
  /home/joshk/Webpage-Chatroom/server/main/../include/Acceptor.h \
  /home/joshk/Webpage-Chatroom/server/main/../include/Connection.h \
+ /home/joshk/Webpage-Chatroom/server/main/../include/Macros.h \
+ /usr/include/c++/11/cassert /usr/include/assert.h \
+ /home/joshk/Webpage-Chatroom/server/main/../include/Buffer.h \
  /home/joshk/Webpage-Chatroom/server/main/../include/ThreadPool.h \
  /usr/include/c++/11/queue /usr/include/c++/11/deque \
  /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
@@ -237,4 +238,5 @@ CMakeFiles/server.dir/main/server.cpp.o: \
  /usr/include/c++/11/atomic /usr/include/c++/11/bits/atomic_futex.h \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/bits/stl_map.h \
- /usr/include/c++/11/bits/stl_multimap.h
+ /usr/include/c++/11/bits/stl_multimap.h \
+ /home/joshk/Webpage-Chatroom/server/main/../include/Message.h

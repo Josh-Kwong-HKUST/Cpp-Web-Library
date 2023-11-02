@@ -219,8 +219,6 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
-  ../include/Client.h \
-  ../include/Message.h \
   ../include/Epoll.h \
   /usr/include/x86_64-linux-gnu/sys/epoll.h \
   /usr/include/x86_64-linux-gnu/bits/epoll.h \
@@ -255,6 +253,10 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
   ../include/Eventloop.h \
   ../include/Acceptor.h \
   ../include/Connection.h \
+  ../include/Macros.h \
+  /usr/include/c++/11/cassert \
+  /usr/include/assert.h \
+  ../include/Buffer.h \
   ../include/ThreadPool.h \
   /usr/include/c++/11/queue \
   /usr/include/c++/11/deque \
@@ -294,7 +296,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
   /usr/include/c++/11/map \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_map.h \
-  /usr/include/c++/11/bits/stl_multimap.h
+  /usr/include/c++/11/bits/stl_multimap.h \
+  ../include/Message.h
 
 
 /usr/include/c++/11/bits/stl_multimap.h:
@@ -327,6 +330,10 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 
 /usr/include/c++/11/backward/auto_ptr.h:
 
+../include/Message.h:
+
+/usr/include/c++/11/bits/atomic_lockfree_defines.h:
+
 /usr/include/c++/11/bits/atomic_base.h:
 
 /usr/include/c++/11/ext/concurrence.h:
@@ -344,6 +351,12 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/c++/11/memory:
 
 /usr/include/c++/11/bits/deque.tcc:
+
+/usr/include/c++/11/deque:
+
+/usr/include/c++/11/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/11/queue:
 
 /usr/include/c++/11/bits/ios_base.h:
 
@@ -396,10 +409,6 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/c++/11/ext/string_conversions.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
-/usr/include/c++/11/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/11/queue:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
@@ -460,8 +469,6 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/c++/11/deque:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
@@ -573,6 +580,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 
 /usr/include/c++/11/cstdlib:
 
+/usr/include/assert.h:
+
 /usr/include/c++/11/ext/numeric_traits.h:
 
 /usr/include/features.h:
@@ -596,12 +605,6 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
-
-/usr/include/c++/11/bits/stl_queue.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
@@ -801,6 +804,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 
 /usr/include/c++/11/bits/istream.tcc:
 
+../include/Buffer.h:
+
 /usr/include/fcntl.h:
 
 /usr/include/c++/11/bits/postypes.h:
@@ -810,8 +815,6 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/linux/falloc.h:
 
 /usr/include/c++/11/bits/unique_lock.h:
-
-../include/Client.h:
 
 /usr/include/c++/11/bits/uses_allocator.h:
 
@@ -836,10 +839,6 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/c++/11/vector:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-/usr/include/c++/11/bits/atomic_lockfree_defines.h:
-
-../include/Message.h:
 
 ../include/Epoll.h:
 
@@ -871,6 +870,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 
 /usr/include/c++/11/bits/stl_algo.h:
 
+/usr/include/c++/11/cassert:
+
 /usr/include/c++/11/pstl/execution_defs.h:
 
 /usr/include/c++/11/bits/algorithmfwd.h:
@@ -884,3 +885,11 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 ../include/Eventloop.h:
 
 ../include/Acceptor.h:
+
+/usr/include/c++/11/bits/stl_queue.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+../include/Macros.h:

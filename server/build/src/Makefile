@@ -202,30 +202,6 @@ Channel.cpp.s:
 	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Channel.cpp.s
 .PHONY : Channel.cpp.s
 
-Client.o: Client.cpp.o
-.PHONY : Client.o
-
-# target to build an object file
-Client.cpp.o:
-	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Client.cpp.o
-.PHONY : Client.cpp.o
-
-Client.i: Client.cpp.i
-.PHONY : Client.i
-
-# target to preprocess a source file
-Client.cpp.i:
-	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Client.cpp.i
-.PHONY : Client.cpp.i
-
-Client.s: Client.cpp.s
-.PHONY : Client.s
-
-# target to generate assembly for a file
-Client.cpp.s:
-	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Client.cpp.s
-.PHONY : Client.cpp.s
-
 Connection.o: Connection.cpp.o
 .PHONY : Connection.o
 
@@ -388,9 +364,6 @@ help:
 	@echo "... Channel.o"
 	@echo "... Channel.i"
 	@echo "... Channel.s"
-	@echo "... Client.o"
-	@echo "... Client.i"
-	@echo "... Client.s"
 	@echo "... Connection.o"
 	@echo "... Connection.i"
 	@echo "... Connection.s"

@@ -26,11 +26,6 @@
 },
 {
   "directory": "/home/joshk/Webpage-Chatroom/server/build/src",
-  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Client.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Client.cpp",
-  "file": "/home/joshk/Webpage-Chatroom/server/src/Client.cpp"
-},
-{
-  "directory": "/home/joshk/Webpage-Chatroom/server/build/src",
   "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Connection.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Connection.cpp",
   "file": "/home/joshk/Webpage-Chatroom/server/src/Connection.cpp"
 },

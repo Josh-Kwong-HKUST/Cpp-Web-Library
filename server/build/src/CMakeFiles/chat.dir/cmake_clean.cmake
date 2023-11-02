@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/chat.dir/Buffer.cpp.o.d"
   "CMakeFiles/chat.dir/Channel.cpp.o"
   "CMakeFiles/chat.dir/Channel.cpp.o.d"
-  "CMakeFiles/chat.dir/Client.cpp.o"
-  "CMakeFiles/chat.dir/Client.cpp.o.d"
   "CMakeFiles/chat.dir/Connection.cpp.o"
   "CMakeFiles/chat.dir/Connection.cpp.o.d"
   "CMakeFiles/chat.dir/Epoll.cpp.o"

@@ -9,6 +9,11 @@ Connection::Connection(Eventloop* _loop, Socket* _sock): loop(_loop),
 {
     readBuffer = new Buffer();
     writeBuffer = new Buffer();
+    state = State::Connected;
+    if (!loop){
+      channel = nullptr;
+      return;
+    }
     channel = new Channel(loop, sock->getSockfd());
     channel->enableRead();
     channel->enableET();

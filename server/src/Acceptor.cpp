@@ -13,7 +13,7 @@ Acceptor::Acceptor(Eventloop* _loop, int port): loop(_loop){
         the acceptor will call Acceptor::acceptConnection
     */
     this->acceptChannel->setCallback(cb);
-    this->acceptChannel->enableReading();
+    this->acceptChannel->enableRead();
 }
 
 Acceptor::~Acceptor(){

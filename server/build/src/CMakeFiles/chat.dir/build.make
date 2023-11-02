@@ -111,24 +111,10 @@ src/CMakeFiles/chat.dir/Channel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chat.dir/Channel.cpp.s"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joshk/Webpage-Chatroom/server/src/Channel.cpp -o CMakeFiles/chat.dir/Channel.cpp.s
 
-src/CMakeFiles/chat.dir/Client.cpp.o: src/CMakeFiles/chat.dir/flags.make
-src/CMakeFiles/chat.dir/Client.cpp.o: ../src/Client.cpp
-src/CMakeFiles/chat.dir/Client.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/chat.dir/Client.cpp.o"
-	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Client.cpp.o -MF CMakeFiles/chat.dir/Client.cpp.o.d -o CMakeFiles/chat.dir/Client.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Client.cpp
-
-src/CMakeFiles/chat.dir/Client.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chat.dir/Client.cpp.i"
-	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joshk/Webpage-Chatroom/server/src/Client.cpp > CMakeFiles/chat.dir/Client.cpp.i
-
-src/CMakeFiles/chat.dir/Client.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chat.dir/Client.cpp.s"
-	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joshk/Webpage-Chatroom/server/src/Client.cpp -o CMakeFiles/chat.dir/Client.cpp.s
-
 src/CMakeFiles/chat.dir/Connection.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Connection.cpp.o: ../src/Connection.cpp
 src/CMakeFiles/chat.dir/Connection.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/chat.dir/Connection.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/chat.dir/Connection.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Connection.cpp.o -MF CMakeFiles/chat.dir/Connection.cpp.o.d -o CMakeFiles/chat.dir/Connection.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Connection.cpp
 
 src/CMakeFiles/chat.dir/Connection.cpp.i: cmake_force
@@ -142,7 +128,7 @@ src/CMakeFiles/chat.dir/Connection.cpp.s: cmake_force
 src/CMakeFiles/chat.dir/Epoll.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Epoll.cpp.o: ../src/Epoll.cpp
 src/CMakeFiles/chat.dir/Epoll.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/chat.dir/Epoll.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/chat.dir/Epoll.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Epoll.cpp.o -MF CMakeFiles/chat.dir/Epoll.cpp.o.d -o CMakeFiles/chat.dir/Epoll.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Epoll.cpp
 
 src/CMakeFiles/chat.dir/Epoll.cpp.i: cmake_force
@@ -156,7 +142,7 @@ src/CMakeFiles/chat.dir/Epoll.cpp.s: cmake_force
 src/CMakeFiles/chat.dir/Eventloop.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Eventloop.cpp.o: ../src/Eventloop.cpp
 src/CMakeFiles/chat.dir/Eventloop.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/chat.dir/Eventloop.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/chat.dir/Eventloop.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Eventloop.cpp.o -MF CMakeFiles/chat.dir/Eventloop.cpp.o.d -o CMakeFiles/chat.dir/Eventloop.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Eventloop.cpp
 
 src/CMakeFiles/chat.dir/Eventloop.cpp.i: cmake_force
@@ -170,7 +156,7 @@ src/CMakeFiles/chat.dir/Eventloop.cpp.s: cmake_force
 src/CMakeFiles/chat.dir/Message.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Message.cpp.o: ../src/Message.cpp
 src/CMakeFiles/chat.dir/Message.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chat.dir/Message.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/chat.dir/Message.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Message.cpp.o -MF CMakeFiles/chat.dir/Message.cpp.o.d -o CMakeFiles/chat.dir/Message.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Message.cpp
 
 src/CMakeFiles/chat.dir/Message.cpp.i: cmake_force
@@ -184,7 +170,7 @@ src/CMakeFiles/chat.dir/Message.cpp.s: cmake_force
 src/CMakeFiles/chat.dir/Server.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Server.cpp.o: ../src/Server.cpp
 src/CMakeFiles/chat.dir/Server.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chat.dir/Server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chat.dir/Server.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Server.cpp.o -MF CMakeFiles/chat.dir/Server.cpp.o.d -o CMakeFiles/chat.dir/Server.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Server.cpp
 
 src/CMakeFiles/chat.dir/Server.cpp.i: cmake_force
@@ -198,7 +184,7 @@ src/CMakeFiles/chat.dir/Server.cpp.s: cmake_force
 src/CMakeFiles/chat.dir/Socket.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Socket.cpp.o: ../src/Socket.cpp
 src/CMakeFiles/chat.dir/Socket.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/chat.dir/Socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chat.dir/Socket.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Socket.cpp.o -MF CMakeFiles/chat.dir/Socket.cpp.o.d -o CMakeFiles/chat.dir/Socket.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Socket.cpp
 
 src/CMakeFiles/chat.dir/Socket.cpp.i: cmake_force
@@ -214,7 +200,6 @@ chat_OBJECTS = \
 "CMakeFiles/chat.dir/Acceptor.cpp.o" \
 "CMakeFiles/chat.dir/Buffer.cpp.o" \
 "CMakeFiles/chat.dir/Channel.cpp.o" \
-"CMakeFiles/chat.dir/Client.cpp.o" \
 "CMakeFiles/chat.dir/Connection.cpp.o" \
 "CMakeFiles/chat.dir/Epoll.cpp.o" \
 "CMakeFiles/chat.dir/Eventloop.cpp.o" \
@@ -228,7 +213,6 @@ chat_EXTERNAL_OBJECTS =
 src/libchat.so: src/CMakeFiles/chat.dir/Acceptor.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Buffer.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Channel.cpp.o
-src/libchat.so: src/CMakeFiles/chat.dir/Client.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Connection.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Epoll.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Eventloop.cpp.o
@@ -237,7 +221,7 @@ src/libchat.so: src/CMakeFiles/chat.dir/Server.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Socket.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/build.make
 src/libchat.so: src/CMakeFiles/chat.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library libchat.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared library libchat.so"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chat.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
