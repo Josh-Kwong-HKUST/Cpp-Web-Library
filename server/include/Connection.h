@@ -5,16 +5,15 @@
 #include "Macros.h"
 #include "Buffer.h"
 #include <stdexcept>
+#include <mutex>
 
 class Connection{
 public:
     enum State {
     Invalid = 1,
-    Handshaking,
     Connected,
     Logined,
     Closed,
-    Failed,
   };
 private:
     State state{Invalid};
@@ -25,6 +24,7 @@ private:
     Buffer* writeBuffer;
     std::function<void(Connection*)> onConnectCallback;
     std::function<void(Socket*)> onDeleteConnectionCallback;
+    std::mutex mutexLock;
 public:
     Connection(Eventloop* _loop, Socket* _sock);
     ~Connection();
@@ -43,4 +43,5 @@ public:
     void setWriteBuffer(const char*);
     void setWriteBufferGetline();
     void setState(State _state);
+    void Close() const;
 };

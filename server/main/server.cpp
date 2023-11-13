@@ -3,7 +3,7 @@
 #include "../include/utils.hpp"
 #include <mysql/mysql.h>
 
-#define MYSQL_HOST "47.243.244.116"
+#define MYSQL_HOST "localhost"   //47.243.244.116
 #define MYSQL_USER "root"
 #define MYSQL_PASS "123456"
 #define MYSQL_DB "chatroom"
@@ -14,6 +14,9 @@
 
 const char* loginOrRegisterRequestHandler(const char* request){
     auto tokens = splitString(request, ' ');
+    if (tokens.size() != 3){
+        return "Failed, invalid request format! Please use /login or /register!";
+    }
     auto requestType = tokens[0];
     auto userName = tokens[1];
     auto userPasswd = tokens[2];
@@ -52,26 +55,35 @@ const char* loginOrRegisterRequestHandler(const char* request){
     }
 }
 int main(int argc, char** argv){
-    Eventloop* loop = new Eventloop();
-    Server* server = new Server(atoi(argv[1]), loop);
+    auto* loop = new Eventloop();
+    auto* server = new Server(atoi(argv[1]), loop);
     server->onConnect([](Connection* conn){     // customize service logic
-        if(conn->getState() != Connection::State::Logined){
-            while(true){
+        while(true){
+            if(conn->getState() != Connection::State::Logined){
                 conn->read();
+                if (conn->getReadBuffer()->size() == 0) continue;
                 const char* request = conn->getReadBuffer()->toStr();
-                printf("Received request: %s\n", request);
                 const char* response = loginOrRegisterRequestHandler(request);
                 conn->setWriteBuffer(response);
                 conn->write();
-                if (strcmp(response, "OK") == 0) break;
+                if (strcmp(response, "OK") == 0){
+                    printf("Good response\n");
+                    conn->setState(Connection::State::Logined);
+                }
+                else{
+                    printf("Notify client that request not correctly handled\n");
+                }
             }
-            conn->setState(Connection::State::Logined);
-        }
-        else{
-            // echo
-            conn->read();
-            conn->setWriteBuffer(conn->getReadBuffer()->toStr());
-            conn->write();
+            // service logic
+            else{
+                conn->read();
+                if (conn->getState() == Connection::State::Closed){
+                    conn->Close();
+                    break;
+                }
+                conn->setWriteBuffer(conn->getReadBuffer()->toStr());
+                conn->write();
+            }
         }
     });
     loop->loop();

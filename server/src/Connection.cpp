@@ -5,11 +5,12 @@ Connection::Connection(Eventloop* _loop, Socket* _sock): loop(_loop),
                                                          readBuffer(nullptr),
                                                          writeBuffer(nullptr),
                                                          onConnectCallback(nullptr),
-                                                         onDeleteConnectionCallback(nullptr)
+                                                         onDeleteConnectionCallback(nullptr),
+                                                         mutexLock()
 {
     readBuffer = new Buffer();
     writeBuffer = new Buffer();
-    state = State::Connected;
+    setState(State::Connected);
     if (!loop){
       channel = nullptr;
       return;
@@ -41,7 +42,10 @@ Connection::State Connection::getState() const{
 }
 
 void Connection::read() {
-  ASSERT(state == State::Logined || state == State::Connected, "Connection read error: connection state is disconnected!");
+  if(!(state == State::Logined || state == State::Connected)){
+      printf("Connection READ error: connection state is disconnected! State: %d\n", state);
+      return;
+    }
   readBuffer->clear();
   if (sock->isNonBlocking()) {
     readNonBlocking();
@@ -51,7 +55,10 @@ void Connection::read() {
 }
 
 void Connection::write(){
-    ASSERT(state == State::Logined || state == State::Connected, "Connection write error: connection state is disconnected!");
+    if(!(state == State::Logined || state == State::Connected)){
+      printf("Connection WRITE error: connection state is disconnected! State: %d\n", state);
+      return;
+    }
     if (sock->isNonBlocking()){
         writeNonBlocking();
     } else {
@@ -76,11 +83,11 @@ void Connection::readNonBlocking() {
       break;
     } else if (bytes_read == 0) {  // EOF，client disconnected
       printf("read EOF, client fd %d disconnected\n", sockfd);
-      state = State::Closed;
+      setState(State::Closed);
       break;
     } else {
       printf("Other error on client fd %d\n", sockfd);
-      state = State::Closed;
+      setState(State::Closed);
       break;
     }
   }
@@ -102,7 +109,7 @@ void Connection::writeNonBlocking() {
     }
     if (bytes_write == -1) {
       printf("Other error on client fd %d\n", sockfd);
-      state = State::Closed;
+      setState(State::Closed);
       break;
     }
     data_left -= bytes_write;
@@ -124,10 +131,10 @@ void Connection::readBlocking() {
     readBuffer->append(buf, bytes_read);
   } else if (bytes_read == 0) {
     printf("read EOF, blocking client fd %d disconnected\n", sockfd);
-    state = State::Closed;
+    setState(State::Closed);
   } else if (bytes_read == -1) {
     printf("Other error on blocking client fd %d\n", sockfd);
-    state = State::Closed;
+    setState(State::Closed);
   }
 }
 
@@ -141,7 +148,7 @@ void Connection::writeBlocking() {
   ssize_t bytes_write = send(sockfd, writeBuffer->toStr(), writeBuffer->size(), 0);
   if (bytes_write == -1) {
     printf("Other error on blocking client fd %d\n", sockfd);
-    state = State::Closed;
+    setState(State::Closed);
   }
 }
 
@@ -166,5 +173,12 @@ void Connection::setWriteBufferGetline(){
 }
 
 void Connection::setState(State _state){
+    mutexLock.lock();
+    printf("Connection state changed from %d to %d\n", state, _state);
     state = _state;
+    mutexLock.unlock();
+}
+
+void Connection::Close() const{
+    onDeleteConnectionCallback(sock);
 }
