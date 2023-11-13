@@ -174,7 +174,6 @@ void Connection::setWriteBufferGetline(){
 
 void Connection::setState(State _state){
     mutexLock.lock();
-    printf("Connection state changed from %d to %d\n", state, _state);
     state = _state;
     mutexLock.unlock();
 }
