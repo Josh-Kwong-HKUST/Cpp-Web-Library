@@ -15,7 +15,7 @@ target_link_libraries(server chat)
 target_link_libraries(server ${mysql_lib})
 
 add_executable(client ${CMAKE_CURRENT_SOURCE_DIR}/main/client.cpp)
-target_link_libraries(client chat)
+target_link_libraries(client chat pthread)
 
 target_include_directories(server PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(client PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
