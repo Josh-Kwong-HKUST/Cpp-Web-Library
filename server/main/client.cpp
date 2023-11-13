@@ -1,5 +1,5 @@
 #include "../include/Connection.h"
-#define HELP "=============================================\n/login {your name} {your password}     to login your account\n/register {your name} {your password}  to register a new account\n/help                                  to show this message\n=============================================\n"
+#define HELP "\n\n==========================================================\n/login {your name} {your password}     to login your account\n/register {your name} {your password}  to register a new account\n/help                                  to show this message\n==========================================================\n\n"
 
 int main(int argc, char** argv){
     // 47.243.244.116:8888
