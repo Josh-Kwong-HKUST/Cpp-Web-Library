@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/server.dir/main/server.cpp.o -o ../bin/server  -Wl,-rpath,/home/joshk/Webpage-Chatroom/server/build/src src/libchat.so -lmysqlclient 

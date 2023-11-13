@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -shared -Wl,-soname,libchat.so -o libchat.so CMakeFiles/chat.dir/Acceptor.cpp.o CMakeFiles/chat.dir/Buffer.cpp.o CMakeFiles/chat.dir/Channel.cpp.o CMakeFiles/chat.dir/Connection.cpp.o CMakeFiles/chat.dir/Epoll.cpp.o CMakeFiles/chat.dir/Eventloop.cpp.o CMakeFiles/chat.dir/Message.cpp.o CMakeFiles/chat.dir/Server.cpp.o CMakeFiles/chat.dir/Socket.cpp.o 
