@@ -54,3 +54,11 @@ void Server::deleteConnection(Socket *sock){
 void Server::onConnect(std::function<void(Connection*)> cb){
     this->onConnectionCallback = std::move(cb);
 }
+
+void Server::broadcast(const char* msg, int excludeFd){
+    for (auto& [fd, conn]: connections){
+        if (fd == excludeFd) continue;
+        conn->setWriteBuffer(msg);
+        conn->write();
+    }
+}

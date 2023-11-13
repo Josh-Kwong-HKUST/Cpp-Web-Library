@@ -57,7 +57,7 @@ const char* loginOrRegisterRequestHandler(const char* request){
 int main(int argc, char** argv){
     auto* loop = new Eventloop();
     auto* server = new Server(atoi(argv[1]), loop);
-    server->onConnect([](Connection* conn){     // customize service logic
+    server->onConnect([&server](Connection* conn){     // customize service logic
         while(true){
             if(conn->getState() != Connection::State::Logined){
                 conn->read();
@@ -81,8 +81,7 @@ int main(int argc, char** argv){
                     conn->Close();
                     break;
                 }
-                conn->setWriteBuffer(conn->getReadBuffer()->toStr());
-                conn->write();
+                server->broadcast(conn->getReadBuffer()->toStr(), conn->getSocket()->getSockfd());
             }
         }
     });
