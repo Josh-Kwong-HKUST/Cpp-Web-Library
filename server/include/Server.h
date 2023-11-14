@@ -27,4 +27,5 @@ class Server{
         void deleteConnection(Socket* sock);
         void onConnect(std::function<void(Connection*)> cb);
         void broadcast(const char* msg, int excludeFd = -1);
+        void forwardMsg(const char* msg, int fd);
 };

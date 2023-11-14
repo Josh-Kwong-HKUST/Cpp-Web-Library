@@ -58,7 +58,11 @@ void Server::onConnect(std::function<void(Connection*)> cb){
 void Server::broadcast(const char* msg, int excludeFd){
     for (auto& [fd, conn]: connections){
         if (fd == excludeFd) continue;
-        conn->setWriteBuffer(msg);
-        conn->write();
+        forwardMsg(msg, fd);
     }
+}
+
+void Server::forwardMsg(const char* msg, int fd){
+    connections[fd]->setWriteBuffer(msg);
+    connections[fd]->write();
 }

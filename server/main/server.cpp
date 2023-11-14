@@ -63,6 +63,8 @@ int main(int argc, char** argv){
                 conn->read();
                 if (conn->getReadBuffer()->size() == 0) continue;
                 const char* request = conn->getReadBuffer()->toStr();
+                // printf("Request:\n%s\n", request);
+                return;
                 const char* response = loginOrRegisterRequestHandler(request);
                 conn->setWriteBuffer(response);
                 conn->write();
