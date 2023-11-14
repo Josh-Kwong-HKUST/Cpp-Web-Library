@@ -1,7 +1,7 @@
 #include "../include/MysqlConnection.h"
 #include <mysql/mysql.h>
 
-MysqlConnection::MysqlConnection(string ip, string user, string passwd, string dbName, unsigned int port): result(nullptr), row(nullptr), host(ip), user(user), passwd(passwd), dbName(dbName), port(port), state(AVAILABLE){
+MysqlConnection::MysqlConnection(): result(nullptr), row(nullptr){
     mysql = mysql_init(nullptr);
     mysql_set_character_set(mysql, "uft-8");
 }
@@ -10,7 +10,7 @@ MysqlConnection::~MysqlConnection(){
     mysql_close(mysql);
 }
 
-bool MysqlConnection::connect(){
+bool MysqlConnection::connect(string host, string user, string passwd, string dbName, unsigned int port){
     if (mysql_real_connect(mysql, host.c_str(), user.c_str(), passwd.c_str(), dbName.c_str(), port, nullptr, 0)){
         return true;
     }
@@ -62,6 +62,10 @@ bool MysqlConnection::next()
     return true;
 }
 
-void MysqlConnection::setState(MysqlConnectionState state){
-    this->state = state;
+void MysqlConnection::refreshAvailableTime(){
+    this->availableTime = std::chrono::steady_clock::now();
+}
+
+std::chrono::steady_clock::time_point MysqlConnection::getAvailableTime() const{
+    return this->availableTime;
 }
