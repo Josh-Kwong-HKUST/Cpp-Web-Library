@@ -1,0 +1,7 @@
+/home/joshk/Webpage-Chatroom/server/build/CMakeFiles/server.dir
+/home/joshk/Webpage-Chatroom/server/build/CMakeFiles/client.dir
+/home/joshk/Webpage-Chatroom/server/build/CMakeFiles/edit_cache.dir
+/home/joshk/Webpage-Chatroom/server/build/CMakeFiles/rebuild_cache.dir
+/home/joshk/Webpage-Chatroom/server/build/src/CMakeFiles/chat.dir
+/home/joshk/Webpage-Chatroom/server/build/src/CMakeFiles/edit_cache.dir
+/home/joshk/Webpage-Chatroom/server/build/src/CMakeFiles/rebuild_cache.dir
