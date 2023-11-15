@@ -1,2 +1,1 @@
-# Webpage-Chatroom
-A simple C++ chatroom on React webpage
+# C++ Web-Server Library

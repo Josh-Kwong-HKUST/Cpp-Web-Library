@@ -274,30 +274,6 @@ Eventloop.cpp.s:
 	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Eventloop.cpp.s
 .PHONY : Eventloop.cpp.s
 
-Message.o: Message.cpp.o
-.PHONY : Message.o
-
-# target to build an object file
-Message.cpp.o:
-	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Message.cpp.o
-.PHONY : Message.cpp.o
-
-Message.i: Message.cpp.i
-.PHONY : Message.i
-
-# target to preprocess a source file
-Message.cpp.i:
-	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Message.cpp.i
-.PHONY : Message.cpp.i
-
-Message.s: Message.cpp.s
-.PHONY : Message.s
-
-# target to generate assembly for a file
-Message.cpp.s:
-	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Message.cpp.s
-.PHONY : Message.cpp.s
-
 MysqlConnection.o: MysqlConnection.cpp.o
 .PHONY : MysqlConnection.o
 
@@ -421,9 +397,6 @@ help:
 	@echo "... Eventloop.o"
 	@echo "... Eventloop.i"
 	@echo "... Eventloop.s"
-	@echo "... Message.o"
-	@echo "... Message.i"
-	@echo "... Message.s"
 	@echo "... MysqlConnection.o"
 	@echo "... MysqlConnection.i"
 	@echo "... MysqlConnection.s"

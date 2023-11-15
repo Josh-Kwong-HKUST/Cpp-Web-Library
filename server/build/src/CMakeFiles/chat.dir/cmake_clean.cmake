@@ -11,8 +11,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/chat.dir/Epoll.cpp.o.d"
   "CMakeFiles/chat.dir/Eventloop.cpp.o"
   "CMakeFiles/chat.dir/Eventloop.cpp.o.d"
-  "CMakeFiles/chat.dir/Message.cpp.o"
-  "CMakeFiles/chat.dir/Message.cpp.o.d"
   "CMakeFiles/chat.dir/MysqlConnection.cpp.o"
   "CMakeFiles/chat.dir/MysqlConnection.cpp.o.d"
   "CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o"
