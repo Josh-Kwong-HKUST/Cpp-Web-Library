@@ -298,6 +298,54 @@ Message.cpp.s:
 	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/Message.cpp.s
 .PHONY : Message.cpp.s
 
+MysqlConnection.o: MysqlConnection.cpp.o
+.PHONY : MysqlConnection.o
+
+# target to build an object file
+MysqlConnection.cpp.o:
+	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/MysqlConnection.cpp.o
+.PHONY : MysqlConnection.cpp.o
+
+MysqlConnection.i: MysqlConnection.cpp.i
+.PHONY : MysqlConnection.i
+
+# target to preprocess a source file
+MysqlConnection.cpp.i:
+	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/MysqlConnection.cpp.i
+.PHONY : MysqlConnection.cpp.i
+
+MysqlConnection.s: MysqlConnection.cpp.s
+.PHONY : MysqlConnection.s
+
+# target to generate assembly for a file
+MysqlConnection.cpp.s:
+	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/MysqlConnection.cpp.s
+.PHONY : MysqlConnection.cpp.s
+
+MysqlConnectionPool.o: MysqlConnectionPool.cpp.o
+.PHONY : MysqlConnectionPool.o
+
+# target to build an object file
+MysqlConnectionPool.cpp.o:
+	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o
+.PHONY : MysqlConnectionPool.cpp.o
+
+MysqlConnectionPool.i: MysqlConnectionPool.cpp.i
+.PHONY : MysqlConnectionPool.i
+
+# target to preprocess a source file
+MysqlConnectionPool.cpp.i:
+	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.i
+.PHONY : MysqlConnectionPool.cpp.i
+
+MysqlConnectionPool.s: MysqlConnectionPool.cpp.s
+.PHONY : MysqlConnectionPool.s
+
+# target to generate assembly for a file
+MysqlConnectionPool.cpp.s:
+	cd /home/joshk/Webpage-Chatroom/server/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.s
+.PHONY : MysqlConnectionPool.cpp.s
+
 Server.o: Server.cpp.o
 .PHONY : Server.o
 
@@ -376,6 +424,12 @@ help:
 	@echo "... Message.o"
 	@echo "... Message.i"
 	@echo "... Message.s"
+	@echo "... MysqlConnection.o"
+	@echo "... MysqlConnection.i"
+	@echo "... MysqlConnection.s"
+	@echo "... MysqlConnectionPool.o"
+	@echo "... MysqlConnectionPool.i"
+	@echo "... MysqlConnectionPool.s"
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"

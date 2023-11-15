@@ -242,6 +242,8 @@ CMakeFiles/server.dir/main/server.cpp.o: \
  /usr/include/c++/11/bits/stl_multimap.h \
  /home/joshk/Webpage-Chatroom/server/main/../include/Message.h \
  /home/joshk/Webpage-Chatroom/server/main/../include/utils.hpp \
+ /home/joshk/Webpage-Chatroom/server/main/../include/MysqlConnectionPool.h \
+ /home/joshk/Webpage-Chatroom/server/main/../include/MysqlConnection.h \
  /usr/include/mysql/mysql.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/include/mysql/field_types.h /usr/include/mysql/my_list.h \

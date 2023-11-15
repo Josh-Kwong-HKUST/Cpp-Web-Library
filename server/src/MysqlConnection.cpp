@@ -3,7 +3,7 @@
 
 MysqlConnection::MysqlConnection(): result(nullptr), row(nullptr){
     mysql = mysql_init(nullptr);
-    mysql_set_character_set(mysql, "uft-8");
+    // mysql_set_character_set(mysql, "uft-8");
 }
 
 MysqlConnection::~MysqlConnection(){

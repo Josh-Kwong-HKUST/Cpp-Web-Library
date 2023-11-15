@@ -46,6 +46,16 @@
 },
 {
   "directory": "/home/joshk/Webpage-Chatroom/server/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/MysqlConnection.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/MysqlConnection.cpp",
+  "file": "/home/joshk/Webpage-Chatroom/server/src/MysqlConnection.cpp"
+},
+{
+  "directory": "/home/joshk/Webpage-Chatroom/server/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/MysqlConnectionPool.cpp",
+  "file": "/home/joshk/Webpage-Chatroom/server/src/MysqlConnectionPool.cpp"
+},
+{
+  "directory": "/home/joshk/Webpage-Chatroom/server/build/src",
   "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Server.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Server.cpp",
   "file": "/home/joshk/Webpage-Chatroom/server/src/Server.cpp"
 },

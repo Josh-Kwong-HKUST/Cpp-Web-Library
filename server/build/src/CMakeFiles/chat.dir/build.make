@@ -167,10 +167,38 @@ src/CMakeFiles/chat.dir/Message.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chat.dir/Message.cpp.s"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joshk/Webpage-Chatroom/server/src/Message.cpp -o CMakeFiles/chat.dir/Message.cpp.s
 
+src/CMakeFiles/chat.dir/MysqlConnection.cpp.o: src/CMakeFiles/chat.dir/flags.make
+src/CMakeFiles/chat.dir/MysqlConnection.cpp.o: ../src/MysqlConnection.cpp
+src/CMakeFiles/chat.dir/MysqlConnection.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chat.dir/MysqlConnection.cpp.o"
+	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/MysqlConnection.cpp.o -MF CMakeFiles/chat.dir/MysqlConnection.cpp.o.d -o CMakeFiles/chat.dir/MysqlConnection.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/MysqlConnection.cpp
+
+src/CMakeFiles/chat.dir/MysqlConnection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chat.dir/MysqlConnection.cpp.i"
+	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joshk/Webpage-Chatroom/server/src/MysqlConnection.cpp > CMakeFiles/chat.dir/MysqlConnection.cpp.i
+
+src/CMakeFiles/chat.dir/MysqlConnection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chat.dir/MysqlConnection.cpp.s"
+	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joshk/Webpage-Chatroom/server/src/MysqlConnection.cpp -o CMakeFiles/chat.dir/MysqlConnection.cpp.s
+
+src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o: src/CMakeFiles/chat.dir/flags.make
+src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o: ../src/MysqlConnectionPool.cpp
+src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o"
+	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o -MF CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o.d -o CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/MysqlConnectionPool.cpp
+
+src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chat.dir/MysqlConnectionPool.cpp.i"
+	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joshk/Webpage-Chatroom/server/src/MysqlConnectionPool.cpp > CMakeFiles/chat.dir/MysqlConnectionPool.cpp.i
+
+src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chat.dir/MysqlConnectionPool.cpp.s"
+	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joshk/Webpage-Chatroom/server/src/MysqlConnectionPool.cpp -o CMakeFiles/chat.dir/MysqlConnectionPool.cpp.s
+
 src/CMakeFiles/chat.dir/Server.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Server.cpp.o: ../src/Server.cpp
 src/CMakeFiles/chat.dir/Server.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chat.dir/Server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/chat.dir/Server.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Server.cpp.o -MF CMakeFiles/chat.dir/Server.cpp.o.d -o CMakeFiles/chat.dir/Server.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Server.cpp
 
 src/CMakeFiles/chat.dir/Server.cpp.i: cmake_force
@@ -184,7 +212,7 @@ src/CMakeFiles/chat.dir/Server.cpp.s: cmake_force
 src/CMakeFiles/chat.dir/Socket.cpp.o: src/CMakeFiles/chat.dir/flags.make
 src/CMakeFiles/chat.dir/Socket.cpp.o: ../src/Socket.cpp
 src/CMakeFiles/chat.dir/Socket.cpp.o: src/CMakeFiles/chat.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chat.dir/Socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/chat.dir/Socket.cpp.o"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat.dir/Socket.cpp.o -MF CMakeFiles/chat.dir/Socket.cpp.o.d -o CMakeFiles/chat.dir/Socket.cpp.o -c /home/joshk/Webpage-Chatroom/server/src/Socket.cpp
 
 src/CMakeFiles/chat.dir/Socket.cpp.i: cmake_force
@@ -204,6 +232,8 @@ chat_OBJECTS = \
 "CMakeFiles/chat.dir/Epoll.cpp.o" \
 "CMakeFiles/chat.dir/Eventloop.cpp.o" \
 "CMakeFiles/chat.dir/Message.cpp.o" \
+"CMakeFiles/chat.dir/MysqlConnection.cpp.o" \
+"CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o" \
 "CMakeFiles/chat.dir/Server.cpp.o" \
 "CMakeFiles/chat.dir/Socket.cpp.o"
 
@@ -217,11 +247,13 @@ src/libchat.so: src/CMakeFiles/chat.dir/Connection.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Epoll.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Eventloop.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Message.cpp.o
+src/libchat.so: src/CMakeFiles/chat.dir/MysqlConnection.cpp.o
+src/libchat.so: src/CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Server.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/Socket.cpp.o
 src/libchat.so: src/CMakeFiles/chat.dir/build.make
 src/libchat.so: src/CMakeFiles/chat.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared library libchat.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library libchat.so"
 	cd /home/joshk/Webpage-Chatroom/server/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chat.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

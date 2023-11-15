@@ -100,12 +100,12 @@ src/clean: src/CMakeFiles/chat.dir/clean
 CMakeFiles/server.dir/all: src/CMakeFiles/chat.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=13,14 "Built target server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=15,16 "Built target server"
 .PHONY : CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 0
 .PHONY : CMakeFiles/server.dir/rule
@@ -126,12 +126,12 @@ CMakeFiles/server.dir/clean:
 CMakeFiles/client.dir/all: src/CMakeFiles/chat.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=11,12 "Built target client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=13,14 "Built target client"
 .PHONY : CMakeFiles/client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 0
 .PHONY : CMakeFiles/client.dir/rule
@@ -152,12 +152,12 @@ CMakeFiles/client.dir/clean:
 src/CMakeFiles/chat.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat.dir/build.make src/CMakeFiles/chat.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target chat"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/joshk/Webpage-Chatroom/server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target chat"
 .PHONY : src/CMakeFiles/chat.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/chat.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/chat.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/joshk/Webpage-Chatroom/server/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/chat.dir/rule

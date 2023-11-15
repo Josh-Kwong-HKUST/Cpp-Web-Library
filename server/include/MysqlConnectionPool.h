@@ -11,6 +11,8 @@
 
 using string = std::string;
 
+#define MAX_IDLE_TIME 600000        // 10 minutes
+#define MIN_CONNECTION_NUM 5
 class MysqlConnectionPool {
 
 private:

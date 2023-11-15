@@ -299,6 +299,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
   /usr/include/c++/11/bits/stl_multimap.h \
   ../include/Message.h \
   ../include/utils.hpp \
+  ../include/MysqlConnectionPool.h \
+  ../include/MysqlConnection.h \
   /usr/include/mysql/mysql.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/include/mysql/field_types.h \
@@ -332,6 +334,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/mysql/field_types.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h:
+
+../include/MysqlConnectionPool.h:
 
 /usr/include/c++/11/bits/stl_multimap.h:
 
@@ -720,6 +724,8 @@ CMakeFiles/server.dir/main/server.cpp.o: ../main/server.cpp \
 /usr/include/linux/errno.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
+
+../include/MysqlConnection.h:
 
 /usr/include/c++/11/bits/locale_classes.h:
 

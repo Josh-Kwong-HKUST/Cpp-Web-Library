@@ -1,10 +1,12 @@
 #include "../include/MysqlConnectionPool.h"
 
+MysqlConnectionPool* MysqlConnectionPool::poolInstance = nullptr;
+
 MysqlConnectionPool::MysqlConnectionPool(string _host, string _user, string _passwd, string _dbName, unsigned int _port): host(_host), user(_user), passwd(_passwd), dbName(_dbName), port(_port){
     std::thread producer([this]()->void{
         while(true){
             std::unique_lock locker(queue_mutex);
-            while (connectionQueue.size() <= std::thread::hardware_concurrency()){
+            while (connectionQueue.size() >= std::thread::hardware_concurrency()){
                 condition.wait(locker);
             }
             MysqlConnection* conn = new MysqlConnection();
@@ -23,10 +25,10 @@ MysqlConnectionPool::MysqlConnectionPool(string _host, string _user, string _pas
             std::this_thread::sleep_for(std::chrono::milliseconds(500));
             std::unique_lock<std::mutex> locker(queue_mutex);
             // keep the minimum number of connections
-            while(connectionQueue.size() > 5){
+            while(connectionQueue.size() > MIN_CONNECTION_NUM){
                 MysqlConnection *recyConn = connectionQueue.front();
                 // recycly when idle timeout
-                if(std::chrono::steady_clock::now() - recyConn->getAvailableTime() >= std::chrono::milliseconds(14400000)){
+                if(std::chrono::steady_clock::now() - recyConn->getAvailableTime() >= std::chrono::milliseconds(MAX_IDLE_TIME)){
                     connectionQueue.pop();
                     delete recyConn;
                     printf("Recycle a MysqlConnection! Current connection queue length: %lu\n", connectionQueue.size());
@@ -46,7 +48,10 @@ MysqlConnectionPool::~MysqlConnectionPool(){
 
 MysqlConnectionPool* MysqlConnectionPool::getInstance()
 {
-    if (poolInstance == nullptr)     poolInstance = new MysqlConnectionPool("localhost", "root", "123456", "test", 0);
+    if (poolInstance == nullptr){
+        poolInstance = new MysqlConnectionPool("localhost", "root", "123456", "chatroom", 0);
+        printf("Mysql Connection Pool created!\n");
+    }
     return poolInstance;
 }
 
