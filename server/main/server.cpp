@@ -3,7 +3,7 @@
 #include "../include/utils.hpp"
 #include "../include/MysqlConnectionPool.h"
 
-#define MYSQL_HOST "localhost"   //47.243.244.116
+#define MYSQL_HOST "localhost"
 #define MYSQL_USER "root"
 #define MYSQL_PASS "123456"
 #define MYSQL_DB "chatroom"
