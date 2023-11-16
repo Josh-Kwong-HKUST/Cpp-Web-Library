@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/joshk/WebServer-Library/build",
+  "command": "/usr/bin/c++  -I/home/joshk/WebServer-Library/include -std=gnu++17 -o CMakeFiles/server.dir/main/server.cpp.o -c /home/joshk/WebServer-Library/main/server.cpp",
+  "file": "/home/joshk/WebServer-Library/main/server.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build",
+  "command": "/usr/bin/c++  -I/home/joshk/WebServer-Library/include -std=gnu++17 -o CMakeFiles/client.dir/main/client.cpp.o -c /home/joshk/WebServer-Library/main/client.cpp",
+  "file": "/home/joshk/WebServer-Library/main/client.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Acceptor.cpp.o -c /home/joshk/WebServer-Library/src/Acceptor.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Acceptor.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Buffer.cpp.o -c /home/joshk/WebServer-Library/src/Buffer.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Buffer.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Channel.cpp.o -c /home/joshk/WebServer-Library/src/Channel.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Channel.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Connection.cpp.o -c /home/joshk/WebServer-Library/src/Connection.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Connection.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Epoll.cpp.o -c /home/joshk/WebServer-Library/src/Epoll.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Epoll.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Eventloop.cpp.o -c /home/joshk/WebServer-Library/src/Eventloop.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Eventloop.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/MysqlConnection.cpp.o -c /home/joshk/WebServer-Library/src/MysqlConnection.cpp",
+  "file": "/home/joshk/WebServer-Library/src/MysqlConnection.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/MysqlConnectionPool.cpp.o -c /home/joshk/WebServer-Library/src/MysqlConnectionPool.cpp",
+  "file": "/home/joshk/WebServer-Library/src/MysqlConnectionPool.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Server.cpp.o -c /home/joshk/WebServer-Library/src/Server.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Server.cpp"
+},
+{
+  "directory": "/home/joshk/WebServer-Library/build/src",
+  "command": "/usr/bin/c++ -Dchat_EXPORTS  -fPIC -std=gnu++17 -o CMakeFiles/chat.dir/Socket.cpp.o -c /home/joshk/WebServer-Library/src/Socket.cpp",
+  "file": "/home/joshk/WebServer-Library/src/Socket.cpp"
+}
+]
